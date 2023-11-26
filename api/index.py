@@ -45,22 +45,22 @@ def thread(threadid):
 
 @app.route('/thread')
 def threadredirect():
-  with open('threads.txt', 'a') as file:
-    file.write(assistants.createnewthread() + '\n')
+  # with open('threads.txt', 'a') as file:
+  #   file.write(assistants.createnewthread() + '\n')
   threadid = assistants.createnewthread()
   return redirect(f'thread/{threadid}')
 
 @app.route('/admin/allthreads')
 def viewallthreads():
-  adminid = request.args.get("adminidtokenkey")
-  if adminid == "1234512345adamisthebesttrust123451234876543234565tgfdswe4r56yuijhgfdsgiefiusdfiuadminkeysosecureidsjfoidsjfiojefioji0o3289rfew9w3":
-    result = ""
-    with open('threads.txt', 'r') as file:
-      for line in file.readlines():
-        result += "<a href='/thread/" + line.strip() + "'>" + line.strip() + "</a><br>"
-    return result
-  else:
-    return "Not authorized."
+  # adminid = request.args.get("adminidtokenkey")
+  # if adminid == "1234512345adamisthebesttrust123451234876543234565tgfdswe4r56yuijhgfdsgiefiusdfiuadminkeysosecureidsjfoidsjfiojefioji0o3289rfew9w3":
+  #   result = ""
+  #   with open('threads.txt', 'r') as file:
+  #     for line in file.readlines():
+  #       result += "<a href='/thread/" + line.strip() + "'>" + line.strip() + "</a><br>"
+  #   return result
+  # else:
+  return "Vercel :("
 
 # if __name__ == "__main__":
 #   app.run(port=80, debug=True)
