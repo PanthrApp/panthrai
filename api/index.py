@@ -62,5 +62,10 @@ def viewallthreads():
   # else:
   return "Vercel :("
 
+@app.route('/beta/<betaid>')
+def betatest(betaid):
+  print(betaid)
+  return redirect('/')
+
 # if __name__ == "__main__":
 #   app.run(port=80, debug=True)
