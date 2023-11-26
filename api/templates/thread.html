@@ -99,7 +99,7 @@ function onsend() {
         var newelement = document.createElement('div');
         newelement.class = "message";
         var paragraph = document.createElement('p');
-        paragraph.innerHTML = "There was a problem connecting to the server. Please <a onclick='window.location.reload()'>refresh the page</a> and try again. If that doesn't work, <a href='/thread'>create a new thread</a> and try again. If the problem persists, <a href='/contact'>contact us</a>.";
+        paragraph.innerHTML = "The request timed out. Please refresh the page. If the problem persists, contact us.";
         newelement.appendChild(paragraph);
         document.getElementsByClassName('messagesentarea')[0].appendChild(newelement);
         document.getElementById("messagesender").disabled = false;
