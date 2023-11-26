@@ -9,7 +9,7 @@ daysofweek = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday"
 
 @app.route("/")
 def index():
-  return "Hello, world!"
+  return render_template("index.html")
 
 @app.route("/api/message", methods=["GET", "POST"])
 def message():
