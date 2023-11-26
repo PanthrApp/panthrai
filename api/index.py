@@ -50,8 +50,8 @@ def threadredirect():
   threadid = assistants.createnewthread()
   return redirect(f'thread/{threadid}')
 
-@app.route('/admin/allthreads')
-def viewallthreads():
+# @app.route('/admin/allthreads')
+# def viewallthreads():
   # adminid = request.args.get("adminidtokenkey")
   # if adminid == "1234512345adamisthebesttrust123451234876543234565tgfdswe4r56yuijhgfdsgiefiusdfiuadminkeysosecureidsjfoidsjfiojefioji0o3289rfew9w3":
   #   result = ""
@@ -60,22 +60,21 @@ def viewallthreads():
   #       result += "<a href='/thread/" + line.strip() + "'>" + line.strip() + "</a><br>"
   #   return result
   # else:
-  return "Vercel :("
+  # return "Vercel :("
 
-betas = {'test1': 'Person 1'}
 
 @app.route('/beta/<betaid>')
 def betatest(betaid):
   print(betaid)
-  if betaid in betas:
-    print(betas[betaid])
-    return redirect('/')
-  else:
-    return "Invalid beta key"
+  return redirect('/')
 
 @app.route('/feedback')
 def feedbackform():
   return '<html><head><title>PantherAI Feedback</title></head><body><div data-tf-live="01HG6KRZK3SGG107Q5WNS32HH1"></div><script src="//embed.typeform.com/next/embed.js"></script></body></html>'
+
+@app.errorhandler(404)
+def error404():
+  return redirect('/')
 
 # if __name__ == "__main__":
 #   app.run(port=80, debug=True)
