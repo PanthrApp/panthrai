@@ -62,10 +62,16 @@ def viewallthreads():
   # else:
   return "Vercel :("
 
+betas = {'test1': 'Person 1'}
+
 @app.route('/beta/<betaid>')
 def betatest(betaid):
   print(betaid)
-  return redirect('/')
+  if betaid in betas:
+    print(betas[betaid])
+    return redirect('/')
+  else:
+    return "Invalid beta key"
 
 # if __name__ == "__main__":
 #   app.run(port=80, debug=True)
