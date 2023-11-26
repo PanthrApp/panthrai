@@ -73,8 +73,8 @@ def feedbackform():
   return '<html><head><title>PantherAI Feedback</title></head><body><div data-tf-live="01HG6KRZK3SGG107Q5WNS32HH1"></div><script src="//embed.typeform.com/next/embed.js"></script></body></html>'
 
 @app.errorhandler(404)
-def error404():
+def error404(e):
   return redirect('/')
 
-# if __name__ == "__main__":
-#   app.run(port=80, debug=True)
+if __name__ == "__main__":
+  app.run(port=8080, debug=True)

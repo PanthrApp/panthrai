@@ -1,0 +1,108 @@
+html {
+  height: 100%;
+  width: 100%;
+  font-family: Inter, sans-serif;
+}
+
+.navbar {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 64px;
+  background-color: #fff;
+  border-bottom: solid;
+  border-width: 1px;
+  border-color: #ddd;
+  z-index: 1;
+}
+
+button {
+  padding: 5px;
+  background-color: #fff;
+  border-style: none;
+  border: solid;
+  border-radius: 5px;
+  border-width: 1px;
+  border-color: #333;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: #eee;
+}
+
+button:active {
+  background-color: #ddd;
+}
+
+button:disabled {
+  background-color: #bbb;
+}
+
+textarea {
+  padding: 5px;
+  margin: 0;
+  resize: none;
+  background-color: #fff;
+  border-style: none;
+  border: solid;
+  border-radius: 5px;
+  border-width: 1px;
+  border-color: #333;
+  transition: background-color 0.2s;
+  font-family: Roboto, sans-serif;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: #222;
+}
+
+textarea:disabled {
+  background-color: #bbb;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #000;
+}
+
+.navbar a:hover {
+  color: #0F1480;
+}
+
+.navbar button {
+  width: 256px;
+  height: 54px;
+  font-size: 24px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  vertical-align: center;
+}
+
+.navbartitle {
+  font-size: 48px;
+  font-weight: bold;
+  margin: 10px;
+  vertical-align: bottom;
+}
+
+.navbartitlenote {
+  font-size: 24px;
+  font-weight: normal;
+  vertical-align: bottom;
+}
+
+.content {
+  margin-top: 70px;
+}
+
+.space {
+  margin-left: 20px;
+}
+
+.navbaritem {
+  font-size: 32px;
+}

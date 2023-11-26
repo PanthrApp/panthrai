@@ -1,0 +1,68 @@
+.messagebar {
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  background: #eee;
+}
+
+.messagebar textarea {
+  width: calc(100% - 84px);
+  height: 32px;
+  margin: 0;
+  margin-bottom: -16px;
+  font-size: 16px;
+}
+
+.messagebar button {
+  width: 64px;
+  height: 47px;
+  font-size: 14px;
+}
+
+.messagebar .buttons {
+  width: 100%;
+  height: 47px;
+  padding: 5px;
+  margin: 0;
+  margin-bottom: -10px;
+}
+
+.messagebar .buttons button {
+  width: calc(25% - 5px);
+  height: 47px;
+  padding: 5px;
+  margin: 0;
+}
+
+.messagebar .explorelabel {
+  margin: 5px;
+  font-size: 24px;
+  font-weight: semi-bold;
+}
+
+.messagesentarea {
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+}
+
+.usermessage {
+  width: calc(100% - 10px);
+  background-color: #eee;
+  padding: 5px;
+}
+
+.usermessage img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  margin-left: 5px;
+}
+
+.usermessage p {
+  display: inline-block;
+  margin: 0;
+  margin-left: 10px;
+  margin-right: 10px;
+  vertical-align: middle;
+}

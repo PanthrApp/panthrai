@@ -4,146 +4,39 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>PantherAI Chat Thread</title>
-  <style>
-    html {
-      height: 100%;
-      width: 100%;
-    }
-
-    .messagebar {
-      position: fixed;
-      bottom: 0px;
-      left: 0px;
-      width: 100%;
-    }
-
-    .messagebar textarea {
-      width: calc(100% - 84px);
-      height: 32px;
-      margin: 0;
-      padding: 5px;
-      resize: none;
-    }
-
-    .messagebar button {
-      width: 64px;
-      height: 47px;
-      padding: 5px;
-      margin: 0;
-      /* margin-bottom: 10px; */
-    }
-  </style>
+  <link href="/static/styles/style.css" rel="stylesheet" type="text/css" />
+  <link href="/static/styles/thread.css" rel="stylesheet" type="text/css" />
+  <link href="https://fonts.googleapis.com/css?family=Inter" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/showdown@2.1.0/dist/showdown.min.js"></script>
 </head>
 <body onload="loadmessages()">
-  <a href="/thread">New Thread (Copy current thread ID to save progress)</a><br>
-  <input type="text" placeholder="Thread id" id="threadid">
-  <button onclick="window.location.href = '/thread/' + document.getElementById('threadid').value">Go to left Thread ID</button>
-  <button onclick='navigator.clipboard.writeText(window.location.pathname.split("/")[2]); alert(`Copied! ${window.location.pathname.split("/")[2]}`)'>Copy Current Thread ID</button>
-  <div class="messagesentarea">
+  <div class="navbar">
+    <a href="/">
+      <span class="navbartitle">PantherAI</span><span class="navbartitlenote">Beta</span>
+    </a>
+    <span class="space"></span>
+    <a href="/thread">
+      <span class="navbaritem">New Thread</span>
+    </a>
   </div>
-  <br><br><br>
-  <div class="messagebar">
-    <textarea id="message" autofocus></textarea>
-    <button id="messagesender" onclick="onsend()">Send</button>
+  <div class="content">
+    <div class="messagesentarea">
+    </div>
+    <br><br><br><br><br><br><br><br>
+    <div class="messagebar">  
+      <span class="explorelabel">Explore</span>
+      <div class="buttons">
+        <button onclick="populate('What is for lunch tomorrow?')">Tomorrow's Lunch Menu</button>
+        <button onclick="populate('What is for lunch this week?')">This Week's Lunch Menu</button>
+        <button onclick="populate('What is for lunch on 11/29?')">11/29 Lunch Menu</button>
+        <button onclick="populate('What is the weather today?')">Today's Weather at JLS</button>
+      </div>
+      <hr style="opacity: 0">
+      <textarea id="message" autofocus></textarea>
+      <button id="messagesender" onclick="onsend()">Send</button>
+    </div>
   </div>
-  <script>
-  document.getElementById('message').onkeydown = function(e){
-  if(e.keyCode == 13 && !e.shiftKey){
-    document.getElementById('messagesender').click();
-    document.getElementById("messagesender").disabled = true;
-    document.getElementById("message").disabled = true;
-  }
-};
-
-function onsend() {
-  var message = document.getElementById('message').value;
-  document.getElementById('message').value = "";
-  var newelement = document.createElement('div');
-  newelement.class = "message";
-  var paragraph = document.createElement('p');
-  paragraph.innerHTML = message;
-  newelement.appendChild(paragraph);
-  document.getElementsByClassName('messagesentarea')[0].appendChild(newelement);
-  if (message.length > 0) {
-    var http = new XMLHttpRequest();
-    var url = '/api/message';
-    var params = `threadid=${window.location.pathname.split('/')[2]}&message=${message}`;
-    http.open('POST', url, true);
-    http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    http.onreadystatechange = function() {
-      if(http.readyState == 4 && http.status == 200) {
-        var converter = new showdown.Converter(),
-        text = http.responseText,
-        html = converter.makeHtml(text);
-        var newelement = document.createElement('div');
-        newelement.class = "message";
-        var paragraph = document.createElement('p');
-        paragraph.innerHTML = html;
-        newelement.appendChild(paragraph);
-        document.getElementsByClassName('messagesentarea')[0].appendChild(newelement);
-        document.getElementById("messagesender").disabled = false;
-        document.getElementById("message").disabled = false;
-        document.getElementById('message').select();
-      } else if (http.readyState == 4 && http.status == 500) {
-        var newelement = document.createElement('div');
-        newelement.class = "message";
-        var paragraph = document.createElement('p');
-        paragraph.innerHTML = "There was a problem sending your message. Please <a href='/thread'>create a new thread</a> and try again. If the problem persists, <a href='/contact'>contact us</a>.";
-        newelement.appendChild(paragraph);
-        document.getElementsByClassName('messagesentarea')[0].appendChild(newelement);
-        document.getElementById("messagesender").disabled = false;
-        document.getElementById("message").disabled = false;
-        document.getElementById('message').select();
-      } else if (http.readyState == 4) {
-        var newelement = document.createElement('div');
-        newelement.class = "message";
-        var paragraph = document.createElement('p');
-        paragraph.innerHTML = "The request timed out. Please refresh the page. If the problem persists, contact us.";
-        newelement.appendChild(paragraph);
-        document.getElementsByClassName('messagesentarea')[0].appendChild(newelement);
-        document.getElementById("messagesender").disabled = false;
-        document.getElementById("message").disabled = false;
-        document.getElementById('message').select();
-      }
-    }
-    http.send(params);
-  }
-}
-
-  function loadmessages() {
-    var http = new XMLHttpRequest();
-    var url = '/api/getmessages';
-    var params = `threadid=${window.location.pathname.split('/')[2]}`;
-    http.open('POST', url, true);
-    http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    http.onreadystatechange = function() {
-        if(http.readyState == 4 && http.status == 200) {
-          var messages = JSON.parse(http.responseText)['messages'];
-          for (var i = 0; i < messages.length; i++) {
-            if (messages[i].role == "assistant") {
-              var converter = new showdown.Converter(),
-              text = messages[i].content,
-              html = converter.makeHtml(text);
-              var newelement = document.createElement('div');
-              newelement.class = "message";
-              var paragraph = document.createElement('p');
-              paragraph.innerHTML = html;
-              newelement.appendChild(paragraph);
-              document.getElementsByClassName('messagesentarea')[0].appendChild(newelement);
-            } else {
-              var newelement = document.createElement('div');
-              newelement.class = "message";
-              var paragraph = document.createElement('p');
-              paragraph.innerHTML = messages[i].content;
-              newelement.appendChild(paragraph);
-              document.getElementsByClassName('messagesentarea')[0].appendChild(newelement);
-            }
-          }
-        }
-    }
-    http.send(params);
-  }
-  </script>
+  <script src="/static/scripts/thread.js"></script>
 </body>
 </html>
