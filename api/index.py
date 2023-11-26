@@ -73,5 +73,9 @@ def betatest(betaid):
   else:
     return "Invalid beta key"
 
+@app.route('/feedback')
+def feedbackform():
+  return '<html><head><title>PantherAI Feedback</title></head><body><div data-tf-live="01HG6KRZK3SGG107Q5WNS32HH1"></div><script src="//embed.typeform.com/next/embed.js"></script></body></html>'
+
 # if __name__ == "__main__":
 #   app.run(port=80, debug=True)
