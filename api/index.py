@@ -72,9 +72,9 @@ def betatest(betaid):
 def feedbackform():
   return '<html><head><title>PantherAI Feedback</title></head><body><div data-tf-live="01HG6KRZK3SGG107Q5WNS32HH1"></div><script src="//embed.typeform.com/next/embed.js"></script></body></html>'
 
-@app.route('/admin')
-def admin():
-  return render_template("admin.html")
+@app.route('/internal/ai/tours/threads/intro/tour')
+def tourintro():
+  return render_template("tour.html")
 
 @app.errorhandler(404)
 def error404(e):
