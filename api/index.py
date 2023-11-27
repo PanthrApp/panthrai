@@ -72,9 +72,17 @@ def betatest(betaid):
 def feedbackform():
   return '<html><head><title>PantherAI Feedback</title></head><body><div data-tf-live="01HG6KRZK3SGG107Q5WNS32HH1"></div><script src="//embed.typeform.com/next/embed.js"></script></body></html>'
 
+@app.route('/admin')
+def admin():
+  return render_template("admin.html")
+
 @app.errorhandler(404)
 def error404(e):
-  return redirect('/')
+  return redirect('/404?page=' + request.path)
+
+@app.route('/404')
+def error404page():
+  return render_template("404.html", page=request.args.get("page"))
 
 if __name__ == "__main__":
   app.run(port=8080, debug=True)
