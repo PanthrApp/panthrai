@@ -106,3 +106,7 @@ textarea:disabled {
 .navbaritem {
   font-size: 32px;
 }
+
+.inactive {
+  display: none;
+}

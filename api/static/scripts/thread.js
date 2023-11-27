@@ -12,6 +12,8 @@ document.getElementById('message').onkeydown = function(e){
 function onsend() {
   document.getElementById("messagesender").disabled = true;
   document.getElementById("message").disabled = true;
+  document.getElementById('explore').classList.add('inactive');
+  document.getElementById('loading').classList.remove('inactive');
   var message = document.getElementById('message').value;
   document.getElementById('message').value = "";
   var newelement = document.createElement('div');
@@ -40,6 +42,8 @@ function onsend() {
         document.getElementById("messagesender").disabled = false;
         document.getElementById("message").disabled = false;
         document.getElementById('message').select();
+        document.getElementById('loading').classList.add('inactive');
+        document.getElementById('explore').classList.remove('inactive');
       } else if (http.readyState == 4 && http.status == 500) {
         newelement.class = "message";
         var paragraph = document.createElement('p');
@@ -49,6 +53,8 @@ function onsend() {
         document.getElementById("messagesender").disabled = false;
         document.getElementById("message").disabled = false;
         document.getElementById('message').select();
+        document.getElementById('loading').classList.add('inactive');
+        document.getElementById('explore').classList.remove('inactive');
       } else if (http.readyState == 4) {
         newelement.class = "message";
         var paragraph = document.createElement('p');
@@ -58,6 +64,8 @@ function onsend() {
         document.getElementById("messagesender").disabled = false;
         document.getElementById("message").disabled = false;
         document.getElementById('message').select();
+        document.getElementById('loading').classList.add('inactive');
+        document.getElementById('explore').classList.remove('inactive');
       }
     }
     http.send(params);
