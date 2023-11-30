@@ -34,7 +34,7 @@ def await_run_completion(run, thread, client):
         print("arguments: " + action.function.arguments)
         if funcname == "today":
           print("getting current date")
-          currentdate = time.strftime("%a, %m/%d/%Y %H:%M:%S", time.localtime(time.time()) - 28800)
+          currentdate = time.strftime("%a, %m/%d/%Y %H:%M:%S", time.localtime(time.time() - 28800))
           outputs[actionid] = currentdate
         if funcname == "get_menu":
           print("getting menu")
