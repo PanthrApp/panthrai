@@ -17,6 +17,7 @@ function onsend() {
   var message = document.getElementById('message').value;
   document.getElementById('message').value = "";
   var newelement = document.createElement('div');
+  newelement.classList.add("message");
   newelement.classList.add("usermessage");
   var paragraph = document.createElement('p');
   paragraph.innerHTML = message;
@@ -29,6 +30,7 @@ function onsend() {
     http.open('POST', url, true);
     http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     var newelement = document.createElement('div');
+    newelement.classList.add("message");
     newelement.classList.add("assistantmessage");
     http.onreadystatechange = function() {
       if(http.readyState == 4 && http.status == 200) {
@@ -87,6 +89,7 @@ function onsend() {
               text = messages[i].content,
               html = converter.makeHtml(text);
               var newelement = document.createElement('div');
+              newelement.classList.add("message");
               newelement.classList.add("assistantmessage");
               var paragraph = document.createElement('p');
               paragraph.innerHTML = html;
@@ -94,6 +97,7 @@ function onsend() {
               document.getElementsByClassName('messagesentarea')[0].appendChild(newelement);
             } else {
               var newelement = document.createElement('div');
+              newelement.classList.add("message");
               newelement.classList.add("usermessage");
               var paragraph = document.createElement('p');
               paragraph.innerHTML = messages[i].content;

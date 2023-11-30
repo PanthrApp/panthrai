@@ -1,3 +1,12 @@
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
 .messagebar {
   position: fixed;
   bottom: 0px;
@@ -73,20 +82,28 @@
   font-size: 16px;
 }
 
-.usermessage {
+.message {
   width: calc(100% - 10px);
-  background-color: #eee;
   padding: 5px;
+  animation: 1s ease-out 0s 1 slideInFromRight;
 }
 
-.usermessage img {
+.usermessage {
+  background-color: #eee;
+}
+
+.assistantmessage {
+  background-color: #fafafa;
+}
+
+.message img {
   width: 32px;
   height: 32px;
   border-radius: 50%;
   margin-left: 5px;
 }
 
-.usermessage p {
+.message p {
   display: inline-block;
   margin: 0;
   margin-left: 10px;
