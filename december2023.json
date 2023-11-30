@@ -1,0 +1,204 @@
+{
+  "weeks": [
+      "week1",
+      "week2",
+      "week3",
+      "week4",
+      "week5"
+  ],
+  "week1": {
+      "days": [
+          "friday"
+      ],
+      "wednesday": {
+          "date": "12/01/2023",
+          "menu": [
+              "GLOBAL FLAVORS 100% Cheese Pizza(V)",
+              "SUPER FOODS Tuna Salad Sandwich w/ Fresh fruit (HM/SC)",
+              "EVERYDAY SELECTS Cheese & Pepperoni Pizza"
+          ]
+      }
+  },
+  "week2": {
+      "days": [
+          "monday",
+          "tuesday",
+          "wednesday",
+          "thursday",
+          "friday"
+      ],
+      "monday": {
+          "date": "12/04/2023",
+          "menu": [
+              "GLOBAL FLAVORS Chicken Drumstick w/Corn on cobb & Biscuit (HM/SC)",
+              "SUPER FOODS Sunbutter & Jelly Sandwich with Cheese Stick(V)",
+              "EVERYDAY SELECTS Vegetable Burger (HM/SC/V)"
+          ]
+      },
+      "tuesday": {
+          "date": "12/05/2023",
+          "menu": [
+              "GLOBAL FLAVORS Chicken Drumstick w/Corn on cobb & Biscuit (HM/SC)",
+              "SUPER FOODS Sunbutter & Jelly Sandwich with Cheese Stick(V)",
+              "EVERYDAY SELECTS Vegetable Burger (HM/SC/V)"
+          ]
+      },
+      "wednesday": {
+          "date": "12/06/2023",
+          "menu": [
+              "GLOBAL FLAVORS Beef Rib-B-Que Sandwich with Potatoes",
+              "SUPER FOODS COLD-Veggie & Teriyaki Chicken Lo Mein Salad (HM/SC)",
+              "EVERYDAY SELECTS Grilled Cheese Sandwich (V)"
+          ]
+      },
+      "thursday": {
+          "date": "12/07/2023",
+          "menu": [
+              "GLOBAL FLAVORS Orange Chicken & Vegetables over Steamed Rice (HM/SC)",
+              "SUPER FOODS Caesar Salad with Roll (HM/SC)(V)(E)",
+              "EVERYDAY SELECTS Spicy Chicken Sandwich with Potatoes"
+          ]
+      },
+      "friday": {
+          "date": "12/08/2023",
+          "menu": [
+              "Global Flavors Meatball Sub Everyday Selects Pepperoni Pizza Cheese Pizza",
+              "Everyday Selects Pepperoni Pizza Cheese Pizza"
+          ]
+      }
+  },
+  "week3": {
+      "days": [
+          "monday",
+          "tuesday",
+          "wednesday",
+          "thursday",
+          "friday"
+      ],
+      "monday": {
+          "date": "12/11/2023",
+          "menu": [
+              "GLOBAL FLAVORS Pasta Alfredo w/Broccoli (HM/SC)(V)",
+              "SUPER FOODS Sunbutter & Jelly Sandwich with Cheese Stick (V)",
+              "EVERYDAY SELECTS Chicken Patty  w/ Toppings"
+          ]
+      },
+      "tuesday": {
+          "date": "12/12/2023",
+          "menu": [
+              "GLOBAL FLAVORS Home made Cheese Quesadilla w/Pico de gallo (HM/SC)(V)",
+              "SUPER FOODS Chef Salad w/ WG roll (HM/SC)",
+              "EVERYDAY SELECTS Cheeseburger Twins"
+          ]
+      },
+      "wednesday": {
+          "date": "12/13/2023",
+          "menu": [
+              "GLOBAL FLAVORS Chicken Soft Tacos (HM/SC)",
+              "SUPER FOODS Fiesta Taco Salad w/Tortilla Chips(HM/SC)(V)",
+              "EVERYDAY SELECTS 100% All beef Burgers with Cheddar Cheese"
+          ]
+      },
+      "thursday": {
+          "date": "12/14/2023",
+          "menu": [
+              "GLOBAL FLAVORS Spaghetti & Meatballs w/ Steamed Broccoli (HM/SC)",
+              "SUPER FOODS Crispy Chicken wrap (HM/SC)",
+              "EVERYDAY SELECTS Bosco Sticks (V)"
+          ]
+      },
+      "friday": {
+          "date": "12/15/2023",
+          "menu": [
+              "NEW YORK PIZZA DAY Cheese (V) Pepperoni Hawaiian",
+              "SUPER FOODS Tuna Salad Sandwich (HM/SC)"
+          ]
+      }
+  },
+  "week4": {
+      "days": [
+          "monday",
+          "tuesday",
+          "wednesday",
+          "thursday",
+          "friday"
+      ],
+      "monday": {
+          "date": "12/18/2023",
+          "menu": [
+              "GLOBAL FLAVORS Chicken Drumstick w/Corn on cobb & Biscuit (HM/SC)",
+              "SUPER FOODS Sunbutter & Jelly Sandwich with Cheese Stick(V)",
+              "EVERYDAY SELECTS Vegetable Burger (V)"
+          ]
+      },
+      "tuesday": {
+          "date": "12/19/2023",
+          "menu": [
+              "GLOBAL FLAVORS Chicken Burrito Bowl (HM/SC)",
+              "SUPER FOODS Hearty Garden Salad with WG Roll(V) (HM/SC)",
+              "EVERYDAY SELECTS Teriyaki Burger(HM)"
+          ]
+      },
+      "wednesday": {
+          "date": "12/20/2023",
+          "menu": [
+              "GLOBAL FLAVORS Beef Rib-B-Que Sandwich with Potatoes",
+              "SUPER FOODS COLD-Veggie & Teriyaki Chicken Lo Mein Salad (HM/SC)",
+              "EVERYDAY SELECTS Grilled Cheese Sandwich (V)"
+          ]
+      },
+      "thursday": {
+          "date": "12/21/2023",
+          "menu": [
+              "GLOBAL FLAVORS Orange Chicken & Vegetables over Steamed Rice (HM/SC)",
+              "SUPER FOODS Caesar Salad with Roll (HM/SC)(V)(E)",
+              "EVERYDAY SELECTS Spicy Chicken Sandwich with Potatoes"
+          ]
+      },
+      "friday": {
+          "date": "12/22/2023",
+          "menu": [
+              "Lunch Menu Unavailable For This Date (Grab & Go Lunch)"
+          ]
+      }
+  },
+  "week5": {
+      "days": [
+          "monday",
+          "tuesday",
+          "wednesday",
+          "thursday",
+          "friday"
+      ],
+      "monday": {
+          "date": "12/24/2023",
+          "menu": [
+              "Winter Break (No Lunch or School)"
+          ]
+      },
+      "tuesday": {
+          "date": "12/25/2023",
+          "menu": [
+              "Winter Break (No Lunch or School)"
+          ]
+      },
+      "wednesday": {
+          "date": "12/26/2023",
+          "menu": [
+              "Winter Break (No Lunch or School)"
+          ]
+      },
+      "thursday": {
+          "date": "12/27/2023",
+          "menu": [
+              "Winter Break (No Lunch or School)"
+          ]
+      },
+      "friday": {
+          "date": "12/28/2023",
+          "menu": [
+              "Winter Break (No Lunch or School)"
+          ]
+      }
+  }
+}

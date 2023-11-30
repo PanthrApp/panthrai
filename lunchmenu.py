@@ -2,7 +2,7 @@ import json
 
 months = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"]
 
-calendar = {"2023": {"november": "november2023.json"}}
+calendar = {"2023": {"november": "november2023.json", "december": "december2023.json"}}
 
 def betterdate(date):
   date = date.split("/")
