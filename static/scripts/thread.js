@@ -1,3 +1,19 @@
+function get_cookie(cname) {
+  let name = cname + "=";
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split(';');
+  for(let i = 0; i <ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
 function populate(text) {
   document.getElementById('message').value = text;
   document.getElementById('messagesender').click();
@@ -10,11 +26,16 @@ document.getElementById('message').onkeydown = function(e){
 };
 
 function onsend() {
+  var message = document.getElementById('message').value;
+  if (message.length == 0) {
+    document.getElementById('message').value = "";
+    return;
+  }
+  // auto scroll to bottom
   document.getElementById("messagesender").disabled = true;
   document.getElementById("message").disabled = true;
   document.getElementById('explore').classList.add('inactive');
   document.getElementById('loading').classList.remove('inactive');
-  var message = document.getElementById('message').value;
   document.getElementById('message').value = "";
   var newelement = document.createElement('div');
   newelement.classList.add("message");
@@ -22,11 +43,12 @@ function onsend() {
   var paragraph = document.createElement('p');
   paragraph.innerHTML = message;
   newelement.appendChild(paragraph);
-  document.getElementsByClassName('messagesentarea')[0].appendChild(newelement);
+  document.getElementById('messagesentarea').appendChild(newelement);
+  window.scrollTo(0, document.body.scrollHeight);
   if (message.length > 0) {
     var http = new XMLHttpRequest();
     var url = '/api/message';
-    var params = `threadid=${window.location.pathname.split('/')[2]}&message=${message}`;
+    var params = `threadid=${window.location.pathname.split('/')[2]}&message=${message}&authorization=${get_cookie('token')}`;
     http.open('POST', url, true);
     http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     var newelement = document.createElement('div');
@@ -46,6 +68,7 @@ function onsend() {
         document.getElementById('message').select();
         document.getElementById('loading').classList.add('inactive');
         document.getElementById('explore').classList.remove('inactive');
+        window.scrollTo(0, document.body.scrollHeight);
       } else if (http.readyState == 4 && http.status == 500) {
         newelement.class = "message";
         var paragraph = document.createElement('p');
@@ -57,6 +80,7 @@ function onsend() {
         document.getElementById('message').select();
         document.getElementById('loading').classList.add('inactive');
         document.getElementById('explore').classList.remove('inactive');
+        window.scrollTo(0, document.body.scrollHeight);
       } else if (http.readyState == 4) {
         newelement.class = "message";
         var paragraph = document.createElement('p');
@@ -68,45 +92,61 @@ function onsend() {
         document.getElementById('message').select();
         document.getElementById('loading').classList.add('inactive');
         document.getElementById('explore').classList.remove('inactive');
+        window.scrollTo(0, document.body.scrollHeight);
       }
     }
     http.send(params);
   }
 }
 
-  function loadmessages() {
-    var http = new XMLHttpRequest();
-    var url = '/api/getmessages';
-    var params = `threadid=${window.location.pathname.split('/')[2]}`;
-    http.open('POST', url, true);
-    http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    http.onreadystatechange = function() {
-        if(http.readyState == 4 && http.status == 200) {
-          var messages = JSON.parse(http.responseText)['messages'];
-          for (var i = 0; i < messages.length; i++) {
-            if (messages[i].role == "assistant") {
-              var converter = new showdown.Converter(),
-              text = messages[i].content,
-              html = converter.makeHtml(text);
-              var newelement = document.createElement('div');
-              newelement.classList.add("message");
-              newelement.classList.add("assistantmessage");
-              var paragraph = document.createElement('p');
-              paragraph.innerHTML = html;
-              newelement.appendChild(paragraph);
-              document.getElementsByClassName('messagesentarea')[0].appendChild(newelement);
-            } else {
-              var newelement = document.createElement('div');
-              newelement.classList.add("message");
-              newelement.classList.add("usermessage");
-              var paragraph = document.createElement('p');
-              paragraph.innerHTML = messages[i].content;
-              newelement.appendChild(paragraph);
-              document.getElementsByClassName('messagesentarea')[0].appendChild(newelement);
-            }
+function open_tour() {
+  document.getElementById('touriframe').contentWindow.location.reload();
+  document.getElementById('backdrop').classList.add('open');
+  document.getElementById('tourmodal').classList.add('actived');
+}
+
+function close_tour() {
+  document.getElementById('backdrop').classList.remove('open');
+  document.getElementById('tourmodal').classList.remove('actived');
+  document.cookie = "seentour=true; expires=Fri, 31 Dec 9999 23:59:59 GMT";
+}
+
+function loadmessages() {
+  if (!get_cookie('seentour')) {
+    open_tour(); //todo
+  }
+  var http = new XMLHttpRequest();
+  var url = '/api/getmessages';
+  var params = `threadid=${window.location.pathname.split('/')[2]}&authorization=${get_cookie('token')}`;
+  http.open('POST', url, true);
+  http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+  http.onreadystatechange = function() {
+      if(http.readyState == 4 && http.status == 200) {
+        var messages = JSON.parse(http.responseText)['messages'];
+        for (var i = 0; i < messages.length; i++) {
+          if (messages[i].role == "assistant") {
+            var converter = new showdown.Converter(),
+            text = messages[i].content,
+            html = converter.makeHtml(text);
+            var newelement = document.createElement('div');
+            newelement.classList.add("message");
+            newelement.classList.add("assistantmessage");
+            var paragraph = document.createElement('p');
+            paragraph.innerHTML = html;
+            newelement.appendChild(paragraph);
+            document.getElementsByClassName('messagesentarea')[0].appendChild(newelement);
+          } else {
+            var newelement = document.createElement('div');
+            newelement.classList.add("message");
+            newelement.classList.add("usermessage");
+            var paragraph = document.createElement('p');
+            paragraph.innerHTML = messages[i].content;
+            newelement.appendChild(paragraph);
+            document.getElementsByClassName('messagesentarea')[0].appendChild(newelement);
           }
         }
-    }
-    http.send(params);
+        window.scrollTo(0, document.body.scrollHeight);
+      }
   }
-  
+  http.send(params);
+}

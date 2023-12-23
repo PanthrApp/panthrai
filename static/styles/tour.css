@@ -1,0 +1,14 @@
+body {
+  background-color: #fff;
+}
+
+.mainimg {
+  width: 100%;
+  height: auto;
+  margin: 0;
+}
+
+.slide p {
+  font-size: 24px;
+  height: 72px;
+}

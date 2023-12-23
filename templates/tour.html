@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <title>Tour</title>
+    <link href="/static/styles/style.css" rel="stylesheet" type="text/css" />
+    <link href="/static/styles/tour.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="slidescontainer" id="slides">
+      <div class="slide" id="slide1">
+        <img class="mainimg" src="/static/resources/images/tour/intro.gif">
+        <p>Click through this tour to learn about PanthrAI! Don't worry, you'll only see this once.</p>
+      </div>
+      <div class="slide inactive" id="slide2">
+        <img class="mainimg" src="/static/resources/images/tour/explore.gif">
+        <p>Explore what PanthrAI can do or access information quickly with a click of a button!</p>
+      </div>
+      <div class="slide inactive" id="slide3">
+        <img class="mainimg" src="/static/resources/images/tour/custom.gif">
+        <p>Ask away! PanthrAI can understand and answer questions, even complex ones that require logic!</p>
+      </div>
+    </div>
+    <div class="navbuttons">
+      <button id="prevbutton" onclick="goback()" disabled>Previous</button>
+      <button id="nextbutton" onclick="gonext()">Next</button>
+      <button id="donebutton" onclick="window.top.close_tour()" class="inactive">Done</button>
+    </div>
+    <script src="/static/scripts/tour.js"></script>
+  </body>
+</html>
