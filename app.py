@@ -130,7 +130,7 @@ def threadredirect():
   con = sqlite3.connect("main.db")
   cur = con.cursor()
   threadid = assistants.createnewthread()
-  cur.execute("INSERT INTO threads VALUES (?, ?, ?, ?)", (threadid, userid, "New Thread", datetime.datetime.now()))
+  cur.execute("INSERT INTO threads VALUES (?, ?, ?, ?)", (threadid, userid, "Chat", datetime.datetime.now()))
   con.commit()
   return redirect(f'thread/{threadid}')
 
@@ -158,6 +158,16 @@ def threadinfo():
   if result[0][1] != userid:
     return "Error"
   return jsonify(result[0])
+
+@app.route('/admin')
+def admin():
+  token = request.cookies.get('token')
+  if getuseridfromtoken(token) == None:
+    return redirect('/404?page=' + request.path)
+  if getuserinfofromtoken(token)[5] == 10:
+    return render_template("page.html", content="<h1>Admin Panel</h1><h2>Actions:</h2><ul><li><a href='/admin/allthreads'>View all threads</a></li></ul>")
+  else:
+    return redirect('/404?page=' + request.path)
 
 @app.route('/admin/allthreads')
 def viewallthreads():
@@ -274,6 +284,8 @@ def error404(e):
 
 @app.route('/404')
 def error404page():
+  if request.args.get("page") == None:
+    return render_template("page.html", content="<h1>404</h1><p>What are you doing here? Are you actively trying to find the 404 page? If so, congratulations, you found it! If you're not, then you should probably contact me because the page you're looking for doesn't exist.</p>")
   return render_template("404.html", page=request.args.get("page"))
 
 @app.route('/logout')

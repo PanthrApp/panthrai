@@ -110,3 +110,13 @@ textarea:disabled {
 .inactive {
   display: none;
 }
+
+.getstartedbtn {
+  padding: 16px;
+  font-size: 36px;
+  font-weight: bold;
+  border-radius: 20px;
+  border-width: 2px;
+  padding-left: 48px;
+  padding-right: 48px;
+}
