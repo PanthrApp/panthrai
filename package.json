@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "clsx": "^2.1.0",
+    "framer-motion": "^11.0.6",
+    "simplex-noise": "^4.0.1",
+    "tailwind-merge": "^2.2.1"
+  }
+}

@@ -23,7 +23,7 @@ con.commit()
 
 daysofweek = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
 
-tokens = {"adam": "115001961098923012957"}
+tokens = {"adam": "116249552855903019643"}
 
 def getuseridfromtoken(token):
   try:
@@ -49,9 +49,7 @@ def getuserinfofromtoken(token):
 def index():
   token = request.cookies.get('token')
   if getuseridfromtoken(token) == None:
-    response = make_response(render_template("index.html"))
-    # response.set_cookie('token', "adam", expires=datetime.datetime.now() + datetime.timedelta(days=7))
-    return response
+    return render_template("index.html")
   else:
     return redirect('/user')
 
@@ -106,24 +104,6 @@ def fetch():
   threadid = request.form.get("threadid")
   response = assistants.getmessagesjson(threadid)
   return jsonify(response)
-
-@app.route('/api/renamethread', methods=["POST"])
-def renamethread():
-  token = request.form.get("authorization")
-  userid = getuseridfromtoken(token)
-  if userid == None:
-    return "Error"
-  con = sqlite3.connect("main.db")
-  cur = con.cursor()
-  cur.execute("SELECT * FROM threads WHERE id=?", (request.form.get("threadid"),))
-  result = cur.fetchall()
-  if len(result) == 0:
-    return "Error"
-  if result[0][1] != userid:
-    return "Error"
-  cur.execute("UPDATE threads SET name=? WHERE id=?", (request.form.get("newname"), request.form.get("threadid")))
-  con.commit()
-  return "Success"
 
 @app.route('/thread/<threadid>')
 def thread(threadid):
@@ -296,7 +276,7 @@ def user():
     newdatetime = datetime.datetime.strptime(thread[3], "%Y-%m-%d %H:%M:%S.%f")
     newdatetime = newdatetime.strftime("%m/%d/%Y %I:%M %p")
     threads += "<li><b><a href='/thread/" + thread[0] + "'>" + thread[2] + "</a></b> Last modified: " + newdatetime + "</li>"
-  return render_template("page.html", content=f"<h1>Welcome, {name}!</h1><p>Click the button above to start chatting. Your chats will be saved below.</p>" + "<h2>Your Threads:</h2><ul>" + threads + "</ul>")
+  return render_template("page.html", content=f"<h1>Welcome, {name}!</h1><p>Now that you're logged in, you can start chatting!</p>" + "<h2>Your Threads:</h2><ul>" + threads + "</ul>")
 
 @app.errorhandler(404)
 def error404(e):
@@ -315,4 +295,4 @@ def logout():
   return response
 
 if __name__ == "__main__":
-  app.run(host="0.0.0.0", port=8080, debug=True)
+  app.run(port=8080, debug=True)

@@ -10,67 +10,84 @@ html {
   left: 0px;
   width: 100%;
   height: 64px;
-  background-color: #fff;
+  background-color: #000000;
   border-bottom: solid;
   border-width: 1px;
-  border-color: #ddd;
+  border-color: #222;
   z-index: 1;
+}
+
+body {
+  background-color: #111111;
+  color: #fefefe;
 }
 
 button {
   padding: 5px;
-  background-color: #fff;
+  background-color: #000;
   border-style: none;
   border: solid;
   border-radius: 5px;
   border-width: 1px;
-  border-color: #333;
+  border-color: #ccc;
   cursor: pointer;
   transition: background-color 0.2s;
+  color: #fff;
 }
 
 button:hover {
-  background-color: #eee;
+  background-color: #111;
 }
 
 button:active {
-  background-color: #ddd;
+  background-color: #222;
 }
 
 button:disabled {
-  background-color: #bbb;
+  background-color: #333;
 }
 
 textarea {
   padding: 5px;
   margin: 0;
   resize: none;
-  background-color: #fff;
+  background-color: #000;
   border-style: none;
   border: solid;
   border-radius: 5px;
   border-width: 1px;
-  border-color: #333;
+  border-color: #ccc;
   transition: background-color 0.2s;
   font-family: Roboto, sans-serif;
 }
 
 textarea:focus {
   outline: none;
-  border-color: #222;
+  border-color: #ddd;
 }
 
 textarea:disabled {
-  background-color: #bbb;
+  background-color: #333;
 }
+
+a {
+  transition: color 0.2s;
+  text-decoration: none;
+  color: #157aff;
+}
+
+a:visited { color:#157aff; }
+a:hover { color:#569fff; text-decoration: underline;}
+a:focus { color:#fff; text-decoration: underline; }
+/* a:hover, a:active { color:#fff } */
 
 .navbar a {
   text-decoration: none;
-  color: #000;
+  color: #fff;
 }
 
 .navbar a:hover {
-  color: #0F1480;
+  color: #dadada;
 }
 
 .navbar button {
@@ -111,12 +128,3 @@ textarea:disabled {
   display: none;
 }
 
-.getstartedbtn {
-  padding: 16px;
-  font-size: 36px;
-  font-weight: bold;
-  border-radius: 20px;
-  border-width: 2px;
-  padding-left: 48px;
-  padding-right: 48px;
-}

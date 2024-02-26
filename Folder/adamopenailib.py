@@ -2,7 +2,6 @@ import time
 import json
 from lunchmenu import getmenu
 from weathers import getweather
-from schedule import getschedulefromdate as getscheduletemplate, betterschedule
 
 def await_run_completion(run, thread, client):
   
@@ -35,25 +34,26 @@ def await_run_completion(run, thread, client):
         print("arguments: " + action.function.arguments)
         if funcname == "today":
           print("getting current date")
-          currentdate = time.strftime("%a, %m/%d/%Y %I:%M:%S %p", time.localtime(time.time()))
+          currentdate = time.strftime("%a, %m/%d/%Y %H:%M:%S", time.localtime(time.time() - 28800))
           outputs[actionid] = currentdate
         if funcname == "get_menu":
           print("getting menu")
           date = json.loads(action.function.arguments)["date"]
           menu = getmenu(date)
           outputs[actionid] = menu
-          print(type(menu))
+        if funcname == "get_relative_menu":
+          print("getting relative menu")
+          n_days = json.loads(action.function.arguments)["n_days"]
+          # find the date n_days from now
+          date = time.strftime("%m/%d/%Y", time.localtime(time.time() + n_days * 86400))
+          dayofweek = time.strftime("%a", time.localtime(time.time() + n_days * 86400))
+          menu = getmenu(date) + f"\nMenu for {dayofweek}, {date}"
+          outputs[actionid] = menu
         if funcname == "get_weather":
           print("getting weather")
           date = json.loads(action.function.arguments)["date"]
           weather = getweather(date)
           outputs[actionid] = weather
-        if funcname == "get_schedule":
-          print("getting schedule")
-          date = json.loads(action.function.arguments)["date"]
-          schedule = getscheduletemplate(date)
-          schedule = betterschedule(schedule)
-          outputs[actionid] = schedule
       print("got info, sending outputs")
       outputssubmit = []
       for output in outputs:

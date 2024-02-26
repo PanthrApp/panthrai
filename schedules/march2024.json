@@ -1,0 +1,162 @@
+{
+  "weeks": [
+    "week1",
+    "week2",
+    "week3",
+    "week4",
+    "week5"
+  ],
+  "week1": {
+    "days": [
+      "friday"
+    ],
+    "friday": {
+      "date": "03/01/2024",
+      "name": "Friday",
+      "template": "friday",
+      "message": "Today marks the first day of March, Women's History Month."
+    }
+  },
+  "week2": {
+    "days": [
+      "monday",
+      "tuesday",
+      "wednesday",
+      "thursday",
+      "friday"
+    ],
+    "monday": {
+      "date": "03/04/2024",
+      "name": "Monday",
+      "template": "friday",
+      "message": "Today follows a Friday schedule."
+    },
+    "tuesday": {
+      "date": "03/05/2024",
+      "name": "Tuesday",
+      "template": "tuesday"
+    },
+    "wednesday": {
+      "date": "03/06/2024",
+      "name": "Wednesday",
+      "template": "wednesday"
+    },
+    "thursday": {
+      "date": "03/07/2024",
+      "name": "Thursday",
+      "template": "thursday"
+    },
+    "friday": {
+      "date": "03/08/2024",
+      "name": "Friday",
+      "template": "staffdevelopment",
+      "message": "Today is Staff Development Day, there is no school for students."
+    }
+  },
+  "week3": {
+    "days": [
+      "monday",
+      "tuesday",
+      "wednesday",
+      "thursday",
+      "friday"
+    ],
+    "monday": {
+      "date": "03/11/2024",
+      "name": "Monday",
+      "template": "noschool",
+      "message": "No school today."
+    },
+    "tuesday": {
+      "date": "03/12/2024",
+      "name": "Tuesday",
+      "template": "tuesday"
+    },
+    "wednesday": {
+      "date": "03/13/2024",
+      "name": "Wednesday",
+      "template": "wednesday"
+    },
+    "thursday": {
+      "date": "03/14/2024",
+      "name": "Thursday",
+      "template": "thursday"
+    },
+    "friday": {
+      "date": "03/15/2024",
+      "name": "Friday",
+      "template": "friday"
+    }
+  },
+  "week4": {
+    "days": [
+      "monday",
+      "tuesday",
+      "wednesday",
+      "thursday",
+      "friday"
+    ],
+    "monday": {
+      "date": "03/18/2024",
+      "name": "Monday",
+      "template": "mondayls",
+      "message": "School starts at 10:00 AM today due to the late start schedule."
+    },
+    "tuesday": {
+      "date": "03/19/2024",
+      "name": "Tuesday",
+      "template": "tuesday"
+    },
+    "wednesday": {
+      "date": "03/20/2024",
+      "name": "Wednesday",
+      "template": "wednesday"
+    },
+    "thursday": {
+      "date": "03/21/2024",
+      "name": "Thursday",
+      "template": "thursday"
+    },
+    "friday": {
+      "date": "03/22/2024",
+      "name": "Friday",
+      "template": "friday"
+    }
+  },
+  "week5": {
+    "days": [
+      "monday",
+      "tuesday",
+      "wednesday",
+      "thursday",
+      "friday"
+    ],
+    "monday": {
+      "date": "03/25/2024",
+      "name": "Monday",
+      "template": "monday"
+    },
+    "tuesday": {
+      "date": "03/26/2024",
+      "name": "Tuesday",
+      "template": "tuesday"
+    },
+    "wednesday": {
+      "date": "03/27/2024",
+      "name": "Wednesday",
+      "template": "wednesday"
+    },
+    "thursday": {
+      "date": "03/28/2024",
+      "name": "Thursday",
+      "template": "thursdaymin",
+      "message": "Today is a minimum day, so school ends at 2:30 PM."
+    },
+    "friday": {
+      "date": "03/29/2024",
+      "name": "Friday",
+      "template": "fridaymin",
+      "message": "Today is a minimum day, so school ends at 12:40 PM. Enjoy your spring break!"
+    }
+  }
+}

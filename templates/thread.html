@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>Chat - PanthrAI</title>
+  <title>Chat - PantherAI</title>
   <link rel="apple-touch-icon" sizes="180x180" href="/static/resources/favicons/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/static/resources/favicons/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/static/resources/favicons/favicon-16x16.png">
@@ -24,7 +24,7 @@
 <body onload="loadmessages()">
   <div class="navbar">
     <a href="/">
-      <span class="navbartitle">PanthrApp</span><span class="navbartitlenote">Beta</span>
+      <span class="navbartitle">PantherAI</span><span class="navbartitlenote">Beta</span>
     </a>
     <span class="space"></span>
     <a href="/thread">
@@ -44,9 +44,9 @@
         <span class="explorelabel">Try one of these prompts!</span><br>
         <div class="buttons">
           <button onclick="populate('What is for lunch tomorrow?')">Tomorrow's Lunch Menu</button>
-          <button onclick="populate('What is for lunch this week?')">This Week's Lunch Menu</button>
-          <button onclick="populate('What is for lunch on 11/29?')">11/29 Lunch Menu</button>
-          <button onclick="populate('What is the weather today?')">Today's Weather at JLS</button>
+          <button onclick="populate('What is the schedule tomorrow?')">Tomorrow's Schedule</button>
+          <button onclick="populate('Give me a summary for the next 3 days. It should include the day of the week, date, lunch menu, and schedule.')">Next 3 Days at a Glance</button>
+          <button onclick="populate('When is lunch and what will be served tomorrow? Give a recomendation for which lunch option to select. Then, give me a fun activity I can do at school afterschool tomorrow.')">Surprise me!</button>
         </div>
       </div>
       <hr style="opacity: 0">
@@ -58,6 +58,6 @@
   <div id="tourmodal" class="tourmodal">
     <iframe id="touriframe" src="/tours/chat"></iframe>
   </div>
-  <script src="/static/scripts/thread.js"></script>
+  <script src="/static/scripts/thread.js?"></script>
 </body>
 </html>

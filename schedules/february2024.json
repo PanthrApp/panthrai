@@ -1,0 +1,34 @@
+{
+  "weeks": [
+    "week5"
+  ],
+  "week5": {
+    "days": [
+      "monday",
+      "tuesday",
+      "wednesday",
+      "thursday"
+    ],
+    "monday": {
+      "date": "02/26/2024",
+      "name": "Monday",
+      "template": "mondayls",
+      "message": "School starts at 10:00 AM today due to the late start schedule."
+    },
+    "tuesday": {
+      "date": "02/27/2024",
+      "name": "Tuesday",
+      "template": "tuesday"
+    },
+    "wednesday": {
+      "date": "02/28/2024",
+      "name": "Wednesday",
+      "template": "wednesday"
+    },
+    "thursday": {
+      "date": "02/29/2024",
+      "name": "Thursday",
+      "template": "thursday"
+    }
+  }
+}

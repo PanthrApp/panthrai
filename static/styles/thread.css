@@ -12,7 +12,7 @@
   bottom: 0px;
   left: 0px;
   width: 100%;
-  background: #eee;
+  background: #000;
 }
 
 .messagebar textarea {
@@ -61,6 +61,8 @@
   margin-right: 5px;
   margin-top: auto;
   margin-bottom: auto;
+  -webkit-filter: invert(1);
+  filter: invert(1);
 }
 
 .loading .loadingtext {
@@ -89,11 +91,11 @@
 }
 
 .usermessage {
-  background-color: #eee;
+  background-color: #181818;
 }
 
 .assistantmessage {
-  background-color: #fafafa;
+  background-color: #222;
 }
 
 .message img {
@@ -117,7 +119,6 @@
 
 .messagesentarea {
   width: 100%;
-  background-color: #fff;
   overflow: hidden;
 }
 

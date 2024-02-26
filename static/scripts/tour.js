@@ -8,6 +8,7 @@ function gonext() {
   if (currentslide == slides.length - 1) {
     document.getElementById('nextbutton').classList.add('inactive');
     document.getElementById('donebutton').classList.remove('inactive');
+    document.getElementById('skipbutton').classList.add('inactive');
   }
   if (currentslide == 1) {
     document.getElementById('prevbutton').disabled = false;
@@ -24,5 +25,6 @@ function goback() {
   if (currentslide == slides.length - 2) {
     document.getElementById('nextbutton').classList.remove('inactive');
     document.getElementById('donebutton').classList.add('inactive');
+    document.getElementById('skipbutton').classList.remove('inactive');
   }
 }

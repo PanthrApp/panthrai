@@ -1,0 +1,94 @@
+{
+    "weeks": [
+        "week1",
+        "week2",
+        "week3",
+        "week4",
+        "week5"
+    ],
+    "week1": {
+        "days": [
+            "tuesday",
+            "wednesday",
+            "thursday",
+            "friday"
+        ],
+        "tuesday": {
+            "date": "01/09/2024",
+            "menu": [
+                "GLOBAL FLAVORS Chicken Burrito Bowl (HM/SC)",
+                "SUPER FOODS Hearty Garden Salad with WG Roll(V) (HM/SC)",
+                "EVERYDAY SELECTS Teriyaki Burger /Cheese Burger"
+            ]
+        },
+        "wednesday": {
+            "date": "01/10/2024",
+            "menu": [
+                "GLOBAL FLAVORS Beef Rib-B-Que Sandwich with Potatoes",
+                "SUPER FOODS COLD-Veggie & Teriyaki Chicken Lo Mein Salad (HM/SC)",
+                "EVERYDAY SELECTS Grilled Cheese Sandwich (V)"
+            ]
+        },
+        "thursday": {
+            "date": "01/11/2024",
+            "menu": [
+                "GLOBAL FLAVORS Asian Chicken & Vegetables over Steamed Rice (HM/SC)",
+                "SUPER FOODS Caesar Salad with Roll (HM/SC)(V)(E)",
+                "EVERYDAY SELECTS Spicy Chicken Sandwich with Potatoes"
+            ]
+        },
+        "friday": {
+            "date": "01/12/2024",
+            "menu": [
+                "GLOBAL FLAVORS Meatball Sub",
+                "BIG DADDY PIZZA BBQ Pizza, Pepperoni Pizza, Cheese Pizza"
+            ]
+        }
+    },
+    "week2": {
+        "days": [
+            "monday",
+            "tuesday",
+            "wednesday",
+            "thursday",
+            "friday"
+        ],
+        "monday": {
+            "date": "01/15/2024",
+            "menu": [
+                "Tell the user that there is no school today and to enjoy their day off because of Martin Luther King Day!"
+            ]
+        },
+        "tuesday": {
+            "date": "01/16/2024",
+            "menu": [
+                "GLOBAL FLAVORS Homemade Cheese Quesadilla w/ Pico di gallo (HM/SC)(V)",
+                "SUPER FOODS Chef Salad w/ WG roll (HM/SC)",
+                "EVERYDAY SELECTS Cheese burger Twins"
+            ]
+        },
+        "wednesday": {
+            "date": "01/17/2024",
+            "menu": [
+                "GLOBAL FLAVORS Beef Hotdog with Potatoes",
+                "SUPER FOODS Fiesta Taco Salad w/Tortilla Chips (HM/SC)(V)",
+                "EVERYDAY SELECTS 100% All beef Burgers"
+            ]
+        },
+        "thursday": {
+            "date": "01/18/2024",
+            "menu": [
+                "GLOBAL FLAVORS Spaghetti & Meatballs w/ Steamed Broccoli (HM/SC)",
+                "SUPER FOODS Crispy Chicken wrap (HM/SC)",
+                "EVERYDAY SELECTS Bosco Sticks (V)"
+            ]
+        },
+        "friday": {
+            "date": "01/19/2024",
+            "menu": [
+                "SUPER FOODS Tuna Salad Sandwich (HM/SC",
+                "NEW YORK PIZZA DAY Cheese (V) Pepperoni Hawaiian"
+            ]
+        }
+    }
+}

@@ -1,5 +1,5 @@
 body {
-  background-color: #fff;
+  background-color: #444;
 }
 
 .mainimg {
@@ -11,4 +11,13 @@ body {
 .slide p {
   font-size: 24px;
   height: 72px;
+}
+
+.navbuttons {
+  display: flex;
+  justify-content: flex-start;
+}
+
+#skipbutton {
+  margin-left: auto;
 }

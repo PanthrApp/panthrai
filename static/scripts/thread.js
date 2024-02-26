@@ -60,7 +60,7 @@ function onsend() {
         text = http.responseText,
         html = converter.makeHtml(text);
         var paragraph = document.createElement('p');
-        paragraph.innerHTML = html;
+        paragraph.innerHTML = html.replace(/\🔴(.*?)\🔴/gi, '<span style="color: red !important;">$1</span>');
         newelement.appendChild(paragraph);
         document.getElementsByClassName('messagesentarea')[0].appendChild(newelement);
         document.getElementById("messagesender").disabled = false;
@@ -132,7 +132,7 @@ function loadmessages() {
             newelement.classList.add("message");
             newelement.classList.add("assistantmessage");
             var paragraph = document.createElement('p');
-            paragraph.innerHTML = html;
+            paragraph.innerHTML = html.replace(/\🔴(.*?)\🔴/gi, '<span style="color: red !important;">$1</span>');
             newelement.appendChild(paragraph);
             document.getElementsByClassName('messagesentarea')[0].appendChild(newelement);
           } else {
