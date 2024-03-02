@@ -55,6 +55,40 @@ def index():
   else:
     return redirect('/user')
 
+betausers = {
+  "XjN9QEmm3GwGWpNTCGXp45te": ["XjN9QEmm3GwGWpNTCGXp45te", "", "betauser@panthr.ai", "Beta User", "https://panthr.app/static/resources/images/default-profile.png", 0],
+  "C9xpUdNGdpLSDzPmxLNC2ZA6": ["C9xpUdNGdpLSDzPmxLNC2ZA6", "", "betauser@panthr.ai", "Beta User", "https://panthr.app/static/resources/images/default-profile.png", 0]
+}
+
+@app.route("/beta")
+def beta():
+  betaid = request.args.get("ref")
+  # betaid is equivelant to the user's id
+  # check to see if the user exists
+  con = sqlite3.connect("main.db")
+  cur = con.cursor()
+  cur.execute("SELECT * FROM users WHERE id=?", (betaid,))
+  result = cur.fetchall()
+  if len(result) == 0:
+    # user does not exist
+    # create user if in betausers
+    if betaid in betausers:
+      cur.execute("INSERT INTO users VALUES (?, ?, ?, ?, ?, ?)", (betausers[betaid][0], betausers[betaid][1], betausers[betaid][2], betausers[betaid][3], betausers[betaid][4], betausers[betaid][5]))
+      con.commit()
+    else:
+      return redirect('/404?page=' + request.path)
+  response = make_response(redirect('/'))
+  random = os.urandom(32)
+  randomb58 = base58check.b58encode(random).decode('utf-8')
+  useridb58 = base58check.b58encode(betaid.encode('utf-8')).decode('utf-8')
+  currentdate = datetime.datetime.now()
+  currentdate = currentdate.strftime("%a, %m/%d/%Y %H:%M:%S")
+  timeb58 = base58check.b58encode(currentdate.encode('utf-8')).decode('utf-8')
+  token = f"{str(useridb58)}.{str(timeb58)}.{str(randomb58)}"
+  tokens[token] = betaid
+  response.set_cookie('token', token, expires=datetime.datetime.now() + datetime.timedelta(days=7))
+  return response
+
 @app.route("/api/message", methods=["POST"])
 def message():
   token = request.form.get("authorization")

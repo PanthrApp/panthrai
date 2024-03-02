@@ -52,6 +52,35 @@ canvas.dots {
   cursor: pointer;
 }
 
+@-webkit-keyframes rotating /* Safari and Chrome */ {
+  from {
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotating {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
 .star-1 {
   position: absolute;
   top: 20%;
@@ -61,6 +90,11 @@ canvas.dots {
   filter: drop-shadow(0 0 0 #fffdef);
   z-index: -5;
   transition: all 1s cubic-bezier(0.05, 0.83, 0.43, 0.96);
+  -webkit-animation: rotating 5s linear infinite;
+  -moz-animation: rotating 5s linear infinite;
+  -ms-animation: rotating 5s linear infinite;
+  -o-animation: rotating 5s linear infinite;
+  animation: rotating 5s linear infinite;
 }
 
 .star-2 {
@@ -72,6 +106,11 @@ canvas.dots {
   filter: drop-shadow(0 0 0 #fffdef);
   z-index: -5;
   transition: all 1s cubic-bezier(0, 0.4, 0, 1.01);
+  -webkit-animation: rotating 5s linear infinite reverse;
+  -moz-animation: rotating 5s linear infinite reverse;
+  -ms-animation: rotating 5s linear infinite reverse;
+  -o-animation: rotating 5s linear infinite reverse;
+  animation: rotating 5s linear infinite reverse;
 }
 
 .star-3 {
@@ -83,6 +122,11 @@ canvas.dots {
   filter: drop-shadow(0 0 0 #fffdef);
   z-index: -5;
   transition: all 1s cubic-bezier(0, 0.4, 0, 1.01);
+  -webkit-animation: rotating 5s linear infinite;
+  -moz-animation: rotating 5s linear infinite;
+  -ms-animation: rotating 5s linear infinite;
+  -o-animation: rotating 5s linear infinite;
+  animation: rotating 5s linear infinite;
 }
 
 .star-4 {
@@ -94,6 +138,11 @@ canvas.dots {
   filter: drop-shadow(0 0 0 #fffdef);
   z-index: -5;
   transition: all .8s cubic-bezier(0, 0.4, 0, 1.01);
+  -webkit-animation: rotating 5s linear infinite;
+  -moz-animation: rotating 5s linear infinite;
+  -ms-animation: rotating 5s linear infinite;
+  -o-animation: rotating 5s linear infinite;
+  animation: rotating 5s linear infinite;
 }
 
 .star-5 {
@@ -105,6 +154,11 @@ canvas.dots {
   filter: drop-shadow(0 0 0 #fffdef);
   z-index: -5;
   transition: all .6s cubic-bezier(0, 0.4, 0, 1.01);
+  -webkit-animation: rotating 5s linear infinite reverse;
+  -moz-animation: rotating 5s linear infinite reverse;
+  -ms-animation: rotating 5s linear infinite reverse;
+  -o-animation: rotating 5s linear infinite reverse;
+  animation: rotating 5s linear infinite reverse;
 }
 
 .star-6 {
@@ -116,6 +170,11 @@ canvas.dots {
   filter: drop-shadow(0 0 0 #fffdef);
   z-index: -5;
   transition: all .8s ease;
+  -webkit-animation: rotating 5s linear infinite reverse;
+  -moz-animation: rotating 5s linear infinite reverse;
+  -ms-animation: rotating 5s linear infinite reverse;
+  -o-animation: rotating 5s linear infinite reverse;
+  animation: rotating 5s linear infinite reverse;
 }
 
 .sparklebtn:hover {
