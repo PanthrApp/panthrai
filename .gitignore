@@ -4,6 +4,7 @@ __pycache__/*
 */.DS_Store
 output/*
 out*
-main.db
 package-lock.json
 package.json
+config.yaml
+main.db

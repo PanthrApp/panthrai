@@ -7,8 +7,8 @@ from authlib.integrations.flask_client import OAuth
 import os
 import sqlite3
 import base64
-import openai
 import base58check
+from config import g_client_id, g_client_secret
 
 app = Flask(__name__)
 app.secret_key = os.urandom(12)
@@ -18,7 +18,7 @@ oauth = OAuth(app)
 con = sqlite3.connect("main.db")
 cur = con.cursor()
 cur.execute("CREATE TABLE IF NOT EXISTS users(id text, pwhash text, email text, name text, pictureurl text, permissionid int)")
-cur.execute("CREATE TABLE IF NOT EXISTS threads(id text, user text, name text, lastmessage datetime)")
+cur.execute("CREATE TABLE IF NOT EXISTS threads(id text, userid text, name text, lastmessage datetime)")
 con.commit()
 
 daysofweek = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
@@ -50,28 +50,24 @@ def index():
   token = request.cookies.get('token')
   if getuseridfromtoken(token) == None:
     response = make_response(render_template("index.html"))
-    # response.set_cookie('token', "adam", expires=datetime.datetime.now() + datetime.timedelta(days=7))
+    response.set_cookie('token', 'adam')
     return response
   else:
     return redirect('/user')
 
 betausers = {
-  "XjN9QEmm3GwGWpNTCGXp45te": ["XjN9QEmm3GwGWpNTCGXp45te", "", "betauser@panthr.ai", "Beta User", "https://panthr.app/static/resources/images/default-profile.png", 0],
-  "C9xpUdNGdpLSDzPmxLNC2ZA6": ["C9xpUdNGdpLSDzPmxLNC2ZA6", "", "betauser@panthr.ai", "Beta User", "https://panthr.app/static/resources/images/default-profile.png", 0]
+  "XjN9QEmm3GwGWpNTCGXp45te": ["XjN9QEmm3GwGWpNTCGXp45te", "", "betauser@panthr.ai", "Beta User", "https://panthr.app/static/resources/default-profile.png", 0],
+  "C9xpUdNGdpLSDzPmxLNC2ZA6": ["C9xpUdNGdpLSDzPmxLNC2ZA6", "", "betauser@panthr.ai", "Beta User", "https://panthr.app/static/resources/default-profile.png", 0],
 }
 
 @app.route("/beta")
 def beta():
   betaid = request.args.get("ref")
-  # betaid is equivelant to the user's id
-  # check to see if the user exists
   con = sqlite3.connect("main.db")
   cur = con.cursor()
   cur.execute("SELECT * FROM users WHERE id=?", (betaid,))
   result = cur.fetchall()
   if len(result) == 0:
-    # user does not exist
-    # create user if in betausers
     if betaid in betausers:
       cur.execute("INSERT INTO users VALUES (?, ?, ?, ?, ?, ?)", (betausers[betaid][0], betausers[betaid][1], betausers[betaid][2], betausers[betaid][3], betausers[betaid][4], betausers[betaid][5]))
       con.commit()
@@ -98,16 +94,12 @@ def message():
   userid = getuseridfromtoken(token)
   if userid == "":
     return "Your session has expired, please refresh the page."
-  # check if matches userid in database
   con = sqlite3.connect("main.db")
   cur = con.cursor()
   cur.execute("SELECT * FROM threads WHERE id=?", (request.form.get("threadid"),))
   result = cur.fetchall()
   if len(result) == 0:
     return "Thread not found."
-  # if result[0][1] != userid:
-  #   return "You do not have permission to access this thread."
-  # update lastmessage datetime
   cur.execute("UPDATE threads SET lastmessage=? WHERE id=?", (datetime.datetime.now(), request.form.get("threadid")))
   con.commit()
   messagecontent = request.form.get("message")
@@ -262,8 +254,8 @@ def tourintro():
 @app.route('/google')
 def google():
 
-    GOOGLE_CLIENT_ID = '1055892927108-1r2o4mhahko9ti4n97brdi1pkm3aka53.apps.googleusercontent.com'
-    GOOGLE_CLIENT_SECRET = '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'
+    GOOGLE_CLIENT_ID = g_client_id
+    GOOGLE_CLIENT_SECRET = g_client_secret
 
     CONF_URL = 'https://accounts.google.com/.well-known/openid-configuration'
     oauth.register(
@@ -306,7 +298,7 @@ def google_auth():
       if "picture" in user:
         cur.execute("INSERT INTO users VALUES (?, ?, ?, ?, ?, ?)", (user['sub'], "", email, user['given_name'] + " " + user['family_name'], user['picture'], 0))
       else:
-        cur.execute("INSERT INTO users VALUES (?, ?, ?, ?, ?, ?)", (user['sub'], "", email, user['given_name'] + " " + user['family_name'], "https://panthr.app/static/resources/images/default-profile.png", 0))
+        cur.execute("INSERT INTO users VALUES (?, ?, ?, ?, ?, ?)", (user['sub'], "", email, user['given_name'] + " " + user['family_name'], "https://panthr.app/static/resources/default-profile.png", 0))
       con.commit()
       return response
     con.commit()
@@ -323,7 +315,7 @@ def user():
   # get user threads
   con = sqlite3.connect("main.db")
   cur = con.cursor()
-  cur.execute("SELECT * FROM threads WHERE user=?", (userid,))
+  cur.execute("SELECT * FROM threads WHERE userid=?", (userid,))
   result = cur.fetchall()
   threads = ""
   for thread in result:
@@ -332,6 +324,10 @@ def user():
     threads += "<li><b><a href='/thread/" + thread[0] + "'>" + thread[2] + "</a></b> Last modified: " + newdatetime + "</li>"
   return render_template("page.html", content=f"<h1>Welcome, {name}!</h1><p>Click the button above to start chatting. Your chats will be saved below.</p>" + "<h2>Your Threads:</h2><ul>" + threads + "</ul>")
 
+@app.route('/super-secret/starfield/pirated-from-replit/inspect')
+def inspect():
+  return render_template("starfield.html")
+
 @app.errorhandler(404)
 def error404(e):
   return redirect('/404?page=' + request.path)
@@ -339,7 +335,7 @@ def error404(e):
 @app.route('/404')
 def error404page():
   if request.args.get("page") == None:
-    return render_template("page.html", content="<h1>404</h1><p>What are you doing here? Are you actively trying to find the 404 page? If so, congratulations, you found it! If you're not, then you should probably contact me because the page you're looking for doesn't exist.</p>")
+    return render_template("page.html", content="<h1>404</h1><p>What are you doing here? Are you trying to find the 404 page? If so, congratulations, you found it! If you're not, then the page you're looking for doesn't exist.</p>")
   return render_template("404.html", page=request.args.get("page"))
 
 @app.route('/logout')
@@ -348,5 +344,5 @@ def logout():
   response.set_cookie('token', '', expires=0)
   return response
 
-if __name__ == "__main__":
-  app.run(host="0.0.0.0", port=8080, debug=True)
+# if __name__ == "__main__":
+#   # app.run(host="0.0.0.0", port=80, debug=True)

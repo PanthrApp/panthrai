@@ -12,7 +12,7 @@
   bottom: 0px;
   left: 0px;
   width: 100%;
-  background: #000;
+  background: var(--navbar-color);
 }
 
 .messagebar textarea {
@@ -21,12 +21,17 @@
   margin: 0;
   margin-bottom: -16px;
   font-size: 16px;
+  outline: none;
+  border:1px solid #ffffff80;
+  background-color: var(--navbar-accent);
 }
 
 .messagebar button {
   width: 64px;
   height: 47px;
   font-size: 14px;
+  border:1px solid #ffffff80;
+  background-color: var(--navbar-accent); 
 }
 
 .messagebar .buttons {
@@ -42,6 +47,7 @@
   height: 47px;
   padding: 5px;
   margin: 0;
+  background-color: var(--navbar-accent);
 }
 
 .loading {
@@ -91,11 +97,11 @@
 }
 
 .usermessage {
-  background-color: #181818;
+  background-color: var(--background-accent1);
 }
 
 .assistantmessage {
-  background-color: #222;
+  background-color: var(--background-accent2);
 }
 
 .message img {
@@ -162,4 +168,10 @@
 .actived {
   opacity: 1;
   pointer-events: auto;
+}
+
+#explore {
+  border-top: solid;
+  border-width: 1px;
+  border-color: #ffffff50;
 }

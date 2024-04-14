@@ -1,15 +1,14 @@
 from openai import OpenAI 
-import assistantsfunctions
 import time
 import json
 from adamopenailib import await_run_completion
 from lunchmenu import getmenu
+from config import openai_api_key, openai_assistant_id
 
-client = OpenAI()
-# from main import assistant
+client = OpenAI(api_key=openai_api_key)
 
 assistant = client.beta.assistants.retrieve(
-  assistant_id="asst_qDS5qAI2qmbD6dV4xwyXSwiw"
+  assistant_id=openai_assistant_id
 )
 
 def message(messagecontent, threadid):
@@ -34,30 +33,10 @@ def message(messagecontent, threadid):
   print(messages.data[0].content[0].text.value)
   return messages.data[0].content[0].text.value
 
-  # messagesclean = []
-  # for message in messages.data:
-  #   print(message.role)
-  #   messagesclean.append(message.content[0].text.value)
-
-  # return messagesclean
-
-# thread = client.beta.threads.create()
-threadid = "thread_HsvyQDiN4QM0KvFh9hApNnlX"
-
-def askquestion(messagecontent, threadid):
-  return message(messagecontent, threadid)[0]
-
 def createnewthread():
   thread = client.beta.threads.create()
   threadid = thread.id
   return threadid
-
-def getmessages(threadid):
-  messages = client.beta.threads.messages.list(thread_id=threadid)
-  messagesclean = []
-  for message in messages.data:
-    messagesclean.append(message.content[0].text.value)
-  return messagesclean
 
 def getmessagesjson(threadid):
   messages = client.beta.threads.messages.list(thread_id=threadid)
@@ -68,20 +47,3 @@ def getmessagesjson(threadid):
   templist.reverse()
   finaljson["messages"] = templist
   return finaljson
-
-def getrawmessages(threadid):
-  messages = client.beta.threads.messages.list(thread_id=threadid)
-  return messages
-
-def convertunix(unix):
-  timeconverted = time.strftime('%m/%d/%Y', time.localtime(unix))
-  temptime = time.strftime('%H', time.localtime(unix))
-  pmtime = False
-  if int(temptime) > 12:
-    temptime = str(int(temptime) - 12)
-    pmtime = True
-  if pmtime:
-    timeconverted += " " + temptime + ":" + time.strftime('%M:%S', time.localtime(unix)) + "PM"
-  else:
-    timeconverted += " " + temptime + ":" + time.strftime('%M:%S', time.localtime(unix)) + "AM"
-  return timeconverted

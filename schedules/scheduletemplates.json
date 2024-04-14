@@ -11,7 +11,10 @@
     "springbreak",
     "staffdevelopment",
     "noschool",
-    "memorialday"
+    "memorialday",
+    "caasppmonday",
+    "caaspptuesday",
+    "caasppwednesday"
   ],
   "monday": {
     "name": "Monday",
@@ -401,6 +404,140 @@
       "type": "class",
       "start": "11:25",
       "end": "12:40"
+    }
+  },
+  "caasppmonday": {
+    "name": "CAASPP Testing - Monday",
+    "periods": [
+      "period1",
+      "brunch",
+      "testing",
+      "lunch",
+      "period2"
+    ],
+    "period1": {
+      "name": "Period 1",
+      "type": "class",
+      "start": "08:30",
+      "end": "09:45"
+    },
+    "brunch": {
+      "name": "Brunch",
+      "type": "brunch",
+      "start": "09:45",
+      "end": "10:00"
+    },
+    "testing": {
+      "name": "CAASPP ELA Performance Task",
+      "type": "testing",
+      "start": "10:05",
+      "end": "12:40"
+    },
+    "lunch": {
+      "name": "Lunch",
+      "type": "lunch",
+      "start": "12:40",
+      "end": "13:10"
+    },
+    "period2": {
+      "name": "Period 2",
+      "type": "class",
+      "start": "13:15",
+      "end": "14:30"
+    }
+  },
+  "caaspptuesday": {
+    "name": "CAASPP Testing - Tuesday",
+    "periods": [
+      "period3",
+      "testing1",
+      "brunch",
+      "testing2",
+      "lunch",
+      "period4",
+      "period5"
+    ],
+    "period3": {
+      "name": "Period 3",
+      "type": "class",
+      "start": "08:30",
+      "end": "09:45"
+    },
+    "testing1": {
+      "name": "CAASPP ELA Computer Adaptive Test (CAT)",
+      "type": "testing",
+      "start": "9:50",
+      "end": "10:40"
+    },
+    "brunch": {
+      "name": "Brunch",
+      "type": "brunch",
+      "start": "10:40",
+      "end": "10:55"
+    },
+    "testing2": {
+      "name": "CAASPP Math Computer Adaptive Test (CAT)",
+      "type": "testing",
+      "start": "11:00",
+      "end": "12:05"
+    },
+    "lunch": {
+      "name": "Lunch",
+      "type": "lunch",
+      "start": "12:05",
+      "end": "12:45"
+    },
+    "period4": {
+      "name": "Period 4",
+      "type": "class",
+      "start": "12:45",
+      "end": "13:55"
+    },
+    "period5": {
+      "name": "Period 5",
+      "type": "class",
+      "start": "14:00",
+      "end": "15:10"
+    }
+  },
+  "caasppwednesday": {
+    "name": "CAASPP Testing - Monday",
+    "periods": [
+      "period1",
+      "brunch",
+      "testing",
+      "lunch",
+      "period2"
+    ],
+    "period1": {
+      "name": "Period 1",
+      "type": "class",
+      "start": "08:30",
+      "end": "09:45"
+    },
+    "brunch": {
+      "name": "Brunch",
+      "type": "brunch",
+      "start": "09:45",
+      "end": "10:00"
+    },
+    "testing": {
+      "name": "CAASPP ELA Performance Task",
+      "type": "testing",
+      "start": "10:05",
+      "end": "12:40"
+    },
+    "lunch": {
+      "name": "Lunch",
+      "type": "lunch",
+      "start": "12:40",
+      "end": "13:10"
+    },
+    "period2": {
+      "name": "Period 2",
+      "type": "class",
+      "start": "13:15",
+      "end": "14:30"
     }
   },
   "springbreak": {

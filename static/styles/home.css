@@ -1,6 +1,7 @@
 body {
   background-color: #000;
   color: #fff;
+  pointer-events: none;
 }
 
 .navbar {
@@ -14,15 +15,19 @@ body {
   justify-content: center;
   width: 100%;
   height: calc(100vh - 180px);
+  pointer-events: none;
 }
 
 h1 {
+  display:block;
   font-size: calc(4vw + 24px);
+  pointer-events: none;
 }
 
 p {
+  display:block;
   font-size: calc(0.6vw + 12px);
-
+  pointer-events: none;
 }
 
 canvas.dots {
@@ -50,6 +55,11 @@ canvas.dots {
   box-shadow: 0 0 0 #fec1958c;
   transition: all .3s ease-in-out;
   cursor: pointer;
+  pointer-events: auto;
+}
+
+.homepage {
+  pointer-events: none;
 }
 
 @-webkit-keyframes rotating /* Safari and Chrome */ {

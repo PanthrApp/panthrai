@@ -19,6 +19,7 @@
   <link href="https://fonts.googleapis.com/css?family=Inter" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="sweetalert2.all.min.js"></script>
   <title>PanthrApp</title>
 </head>
 <body>
@@ -32,12 +33,13 @@
       <a href="user"><span class="navbaritem">Dashboard</button></a>
     </a>
   </div>
+  <iframe class="dots" id="starfield" src="/super-secret/starfield/pirated-from-replit/inspect" style="position: absolute; top: 0; left: 0; z-index: -1; overflow: hidden; border: none;" scrolling="no" width="100%" height="100%"></iframe>
   <div class="content">
-    <canvas class="dots"></canvas>
-    <script src="/static/scripts/dots.js"></script>
+    <!-- <canvas class="dots"></canvas> -->
+    <!-- <script src="/static/scripts/dots.js"></script> -->
     <div class="homepage">
       <h1>Welcome to PantherAI!</h1>
-      <a href="/user" class="sparklebtnbg">
+      <a href="/user" onclick="document.getElementById('starfield').contentWindow.yessir();" class="sparklebtnbg">
         <button class="sparklebtn">Get Started
           <div class="star-1">
             <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 784.11 815.53" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" version="1.1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><defs></defs><g id="Layer_x0020_1"><metadata id="CorelCorpID_0Corel-Layer"></metadata><path d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z" class="fil0"></path></g></svg>

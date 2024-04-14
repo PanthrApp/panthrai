@@ -10,29 +10,29 @@ html {
   left: 0px;
   width: 100%;
   height: 64px;
-  background-color: #000000;
+  background-color: var(--navbar-color);
   border-bottom: solid;
   border-width: 1px;
-  border-color: #222;
+  border-color: #ffffff20;
   z-index: 1;
 }
 
 body {
-  background-color: #111111;
-  color: #fefefe;
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
 button {
   padding: 5px;
-  background-color: #000;
+  background-color: var(--navbar-accent);
   border-style: none;
   border: solid;
   border-radius: 5px;
   border-width: 1px;
   border-color: #ccc;
   cursor: pointer;
-  transition: background-color 0.2s;
-  color: #fff;
+  /* transition: background-color 0.2s; */
+  color: var(--navbar-link-color);
 }
 
 button:hover {
@@ -57,8 +57,14 @@ textarea {
   border-radius: 5px;
   border-width: 1px;
   border-color: #ccc;
-  transition: background-color 0.2s;
+  /* transition: background-color 0.2s; */
   font-family: Roboto, sans-serif;
+  color: var(--navbar-text-color);
+}
+
+textarea::placeholder {
+  color: var(--navbar-link-accent);
+  opacity: 1; /* Firefox */
 }
 
 textarea:focus {
@@ -71,23 +77,23 @@ textarea:disabled {
 }
 
 a {
-  transition: color 0.2s;
+  /* transition: color 0.2s; */
   text-decoration: none;
-  color: #157aff;
+  color: var(--link-color);
 }
 
-a:visited { color:#157aff; }
-a:hover { color:#569fff; text-decoration: underline;}
-a:focus { color:#fff; text-decoration: underline; }
+a:visited { color:var(--link-color); }
+a:hover, a:active { color:var(--link-accent); text-decoration: underline;}
+/* a:focus { color:var(--link-accent); text-decoration: underline; } */
 /* a:hover, a:active { color:#fff } */
 
 .navbar a {
   text-decoration: none;
-  color: #fff;
+  color: var(--navbar-link-color);
 }
 
 .navbar a:hover {
-  color: #dadada;
+  color: var(--navbar-link-accent);
 }
 
 .navbar button {

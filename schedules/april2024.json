@@ -1,0 +1,111 @@
+{
+  "weeks": [
+    "week1",
+    "week2",
+    "week3",
+    "week4",
+    "week5"
+  ],
+  "week1": {
+    "days": [
+      "monday",
+      "tuesday",
+      "wednesday",
+      "thursday",
+      "friday"
+    ],
+    "monday": {
+      "date": "04/01/2024",
+      "name": "Spring Break",
+      "template": "springbreak"
+    },
+    "tuesday": {
+      "date": "04/02/2024",
+      "name": "Spring Break",
+      "template": "springbreak"
+    },
+    "wednesday": {
+      "date": "04/03/2024",
+      "name": "Spring Break",
+      "template": "springbreak"
+    },
+    "thursday": {
+      "date": "04/04/2024",
+      "name": "Spring Break",
+      "template": "springbreak"
+    },
+    "friday": {
+      "date": "04/05/2024",
+      "name": "Spring Break",
+      "template": "springbreak"
+    }
+  },
+  "week2": {
+    "days": [
+      "monday",
+      "tuesday",
+      "wednesday",
+      "thursday",
+      "friday"
+    ],
+    "monday": {
+      "date": "04/08/2024",
+      "name": "Monday",
+      "template": "monday"
+    },
+    "tuesday": {
+      "date": "04/09/2024",
+      "name": "Tuesday",
+      "template": "tuesday"
+    },
+    "wednesday": {
+      "date": "04/10/2024",
+      "name": "Wednesday",
+      "template": "wednesday"
+    },
+    "thursday": {
+      "date": "04/11/2024",
+      "name": "Thursday",
+      "template": "thursday"
+    },
+    "friday": {
+      "date": "04/12/2024",
+      "name": "Friday",
+      "template": "friday"
+    }
+  },
+  "week3": {
+    "days": [
+      "monday",
+      "tuesday",
+      "wednesday",
+      "thursday",
+      "friday"
+    ],
+    "monday": {
+      "date": "04/15/2024",
+      "name": "CAASPP Testing Monday",
+      "template": "caasppmonday"
+    },
+    "tuesday": {
+      "date": "04/16/2024",
+      "name": "CAASPP Testing Tuesday",
+      "template": "caaspptuesday"
+    },
+    "wednesday": {
+      "date": "04/17/2024",
+      "name": "Wednesday",
+      "template": "wednesday"
+    },
+    "thursday": {
+      "date": "04/18/2024",
+      "name": "Thursday",
+      "template": "thursday"
+    },
+    "friday": {
+      "date": "04/19/2024",
+      "name": "Friday",
+      "template": "friday"
+    }
+  }
+}

@@ -1,0 +1,151 @@
+{
+    "weeks": [
+        "week1",
+        "week2",
+        "week3"
+    ],
+    "week1": {
+        "days": [
+            "monday",
+            "tuesday",
+            "wednesday",
+            "thursday",
+            "friday"
+        ],
+        "monday": {
+            "date": "04/01/2024",
+            "menu": [
+                "Spring Break"
+            ]
+        },
+        "tuesday": {
+            "date": "04/02/2024",
+            "menu": [
+                "Spring Break"
+            ]
+        },
+        "wednesday": {
+            "date": "04/03/2024",
+            "menu": [
+                "Spring Break"
+            ]
+        },
+        "thursday": {
+            "date": "04/04/2024",
+            "menu": [
+                "Spring Break"
+            ]
+        },
+        "friday": {
+            "date": "04/05/2024",
+            "menu": [
+                "Spring Break"
+            ]
+        }
+    },
+    "week2": {
+        "days": [
+            "monday",
+            "tuesday",
+            "wednesday",
+            "thursday",
+            "friday"
+        ],
+        "monday": {
+            "date": "04/08/2024",
+            "menu": [
+                "Breaded Drumstick, Corn and Baked Biscuit",
+                "1/2 Sunbutter and Jelly Sandwich Mozzarella String Cheese Stick",
+                "Garden Veggie Burger on WG Bun"
+            ]
+        },
+        "tuesday": {
+            "date": "04/09/2024",
+            "menu": [
+                "Beef Soft Taco Salsa Roja",
+                "Hearty Garden Salad Dinner Roll",
+                "Teriyaki Burger Baked French Fries",
+                "Beef Burger Baked French Fries"
+            ]
+        },
+        "wednesday": {
+            "date": "04/10/2024",
+            "menu": [
+                "Barbecue Beef Riblet Sandwich Baked French Fries",
+                "Grilled Cheese Sandwich",
+                "Beef Chili and Chips",
+                "Veggie Chili and Chips"
+            ]
+        },
+        "thursday": {
+            "date": "04/11/2024",
+            "menu": [
+                "Chicken Stir Fry Brown Rice",
+                "Caesar Salad Dinner Roll",
+                "Hot & Spicy Chicken Burger Baked French Fries"
+            ]
+        },
+        "friday": {
+            "date": "04/12/2024",
+            "menu": [
+                "New York Pizza",
+                "Cheese Pizza",
+                "Hawaiian Pizza",
+                "Pepperoni Pizza",
+                "Tuna Salad Sandwich with Fresh Fruit"
+            ]
+        }
+    },
+    "week3": {
+        "days": [
+            "monday",
+            "tuesday",
+            "wednesday",
+            "thursday",
+            "friday"
+        ],
+        "monday": {
+            "date": "04/15/2024",
+            "menu": [
+                "Pasta Alfredo with Broccoli",
+                "1/2 Sunbutter and Jelly Sandwich",
+                "Breaded Chicken Patty on WG Bun"
+            ]
+        },
+        "tuesday": {
+            "date": "04/16/2024",
+            "menu": [
+                "Cheese Quesadilla Pico de Gallo",
+                "Chef Salad w/ WGR Dinner Rolls",
+                "Chicken Corn Dog with Fries"
+            ]
+        },
+        "wednesday": {
+            "date": "04/17/2024",
+            "menu": [
+                "Beef Hotdog Baked French Fries",
+                "Creamy Mac & Cheese Dinner Roll",
+                "Beef Burger Baked French Fies",
+                "100% Beef Cheeseburger Baked French Fies"
+            ]
+        },
+        "thursday": {
+            "date": "04/18/2024",
+            "menu": [
+                "Spaghetti and Meatballs with Side of Broccoli",
+                "Crispy Chicken Wrap",
+                "Bosco Cheese Sticks Marinara Sauce Cup"
+            ]
+        },
+        "friday": {
+            "date": "04/19/2024",
+            "menu": [
+                "Big Daddy Pizza",
+                "Cheese Pizza",
+                "Pepperoni Pizza",
+                "Hawaiian Pizza",
+                "Tuna Salad Sandwich Fresh Fruit Cup"
+            ]
+        }
+    }
+}

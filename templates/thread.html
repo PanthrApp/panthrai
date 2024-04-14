@@ -20,6 +20,8 @@
   <link href="https://fonts.googleapis.com/css?family=Inter" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/showdown@2.1.0/dist/showdown.min.js"></script>
+  <script src="sweetalert2.all.min.js"></script>
+  <script src="/static/scripts/arctheme.js"></script>
 </head>
 <body onload="loadmessages()">
   <div class="navbar">
@@ -50,7 +52,7 @@
         </div>
       </div>
       <hr style="opacity: 0">
-      <textarea id="message" placeholder="Or write your own message!" autofocus></textarea>
+      <textarea id="message" data-gramm="false" placeholder="Or write your own message!" autofocus></textarea>
       <button id="messagesender" onclick="onsend()">Send</button>
     </div>
   </div>
@@ -59,5 +61,6 @@
     <iframe id="touriframe" src="/tours/chat"></iframe>
   </div>
   <script src="/static/scripts/thread.js?"></script>
+  <!-- <script>setarctheme()</script> -->
 </body>
 </html>

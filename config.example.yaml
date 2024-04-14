@@ -1,0 +1,6 @@
+openai:
+  assistant_id: "asst_ASSISTANTID12345678901234567890"
+  api_key: "sk-APIKEY123456789012345678901234567890"
+google:
+  client_id: "1234567890-ABCDEFGHIJKLMNOPQRSTUVWXYZ.apps.googleusercontent.com"
+  client_secret: "ABCDEF-12345678_ABCDEFGH-123-ABCDEF"
