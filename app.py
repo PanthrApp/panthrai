@@ -58,6 +58,15 @@ def index():
 betausers = {
   "XjN9QEmm3GwGWpNTCGXp45te": ["XjN9QEmm3GwGWpNTCGXp45te", "", "betauser@panthr.ai", "Beta User", "https://panthr.app/static/resources/default-profile.png", 0],
   "C9xpUdNGdpLSDzPmxLNC2ZA6": ["C9xpUdNGdpLSDzPmxLNC2ZA6", "", "betauser@panthr.ai", "Beta User", "https://panthr.app/static/resources/default-profile.png", 0],
+  "y9rqZCkGEPmsZxadZeAfMJyq": ["y9rqZCkGEPmsZxadZeAfMJyq", "", "betauser@panthr.ai", "Beta User", "https://panthr.app/static/resources/default-profile.png", 0],
+  "xuv8I8bUwnCodLvNBiAjkdmT": ["xuv8I8bUwnCodLvNBiAjkdmT", "", "betauser@panthr.ai", "Beta User", "https://panthr.app/static/resources/default-profile.png", 0],
+  "qpDbEG6uPKw4DemhLavoFf6H": ["qpDbEG6uPKw4DemhLavoFf6H", "", "betauser@panthr.ai", "Beta User", "https://panthr.app/static/resources/default-profile.png", 0],
+  "DfFGuEmSongCGkKaoolIBiao": ["DfFGuEmSongCGkKaoolIBiao", "", "betauser@panthr.ai", "Beta User", "https://panthr.app/static/resources/default-profile.png", 0],
+  "8kJYdbfHSh9qSNOnNSHHSjis": ["8kJYdbfHSh9qSNOnNSHHSjis", "", "betauser@panthr.ai", "Beta User", "https://panthr.app/static/resources/default-profile.png", 0],
+  "QXITlX4jYAdnuGal8R6xSMVy": ["QXITlX4jYAdnuGal8R6xSMVy", "", "betauser@panthr.ai", "Beta User", "https://panthr.app/static/resources/default-profile.png", 0],
+  "U7WwLO3Cpl7wi2vtCqTGxzVG": ["U7WwLO3Cpl7wi2vtCqTGxzVG", "", "betauser@panthr.ai", "Beta User", "https://panthr.app/static/resources/default-profile.png", 0],
+  "uIdXdeV2RrXNtmYBOjlGyRgQ": ["uIdXdeV2RrXNtmYBOjlGyRgQ", "", "betauser@panthr.ai", "Beta User", "https://panthr.app/static/resources/default-profile.png", 0],
+  "cMT9fmvAsnhLieUtU4WKDFqk": ["cMT9fmvAsnhLieUtU4WKDFqk", "", "betauser@panthr.ai", "Beta User", "https://panthr.app/static/resources/default-profile.png", 0],
 }
 
 @app.route("/beta")
@@ -322,7 +331,7 @@ def user():
     newdatetime = datetime.datetime.strptime(thread[3], "%Y-%m-%d %H:%M:%S.%f")
     newdatetime = newdatetime.strftime("%m/%d/%Y %I:%M %p")
     threads += "<li><b><a href='/thread/" + thread[0] + "'>" + thread[2] + "</a></b> Last modified: " + newdatetime + "</li>"
-  return render_template("page.html", content=f"<h1>Welcome, {name}!</h1><p>Click the button above to start chatting. Your chats will be saved below.</p>" + "<h2>Your Threads:</h2><ul>" + threads + "</ul>")
+  return render_template("user.html", content=f"<h1>Welcome, {name}!</h1><p>Click the button above to start chatting. Your chats will be saved below.</p>" + "<h2>Your Threads:</h2><ul>" + threads + "</ul>")
 
 @app.route('/super-secret/starfield/pirated-from-replit/inspect')
 def inspect():
@@ -344,5 +353,5 @@ def logout():
   response.set_cookie('token', '', expires=0)
   return response
 
-# if __name__ == "__main__":
-#   # app.run(host="0.0.0.0", port=80, debug=True)
+if __name__ == "__main__":
+  app.run(host="0.0.0.0", port=8080, debug=True)

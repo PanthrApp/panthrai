@@ -134,3 +134,27 @@ a:hover, a:active { color:var(--link-accent); text-decoration: underline;}
   display: none;
 }
 
+.navbaritem img {
+  height: 32px;
+  width: 32px;
+  -webkit-filter: invert(1);
+  filter: invert(1);
+}
+
+@media only screen and (min-width: 620px) {
+  .navbaritem img {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 620px) {
+  #dashboard, #newthread {
+    display: none;
+  }
+
+  .navbaritem img {
+    height: 32px;
+    width: 32px;
+    display: inline;
+  }
+}
