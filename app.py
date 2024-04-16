@@ -260,6 +260,10 @@ def feedbackform():
 def tourintro():
   return render_template("tour.html")
 
+@app.route('/tours/update')
+def updatemodal():
+  return render_template("updatemodal.html")
+
 @app.route('/google')
 def google():
 

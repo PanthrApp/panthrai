@@ -97,7 +97,7 @@ function close_tour() {
 
 function loadmessages() {
   if (!get_cookie('seentour')) {
-    open_tour(); //todo
+    open_tour();
   }
   var http = new XMLHttpRequest();
   var url = '/api/getmessages';

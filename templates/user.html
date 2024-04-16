@@ -35,5 +35,10 @@
   <div class="content">
     {{ content|safe }}
   </div>
+  <div id="backdrop" class="backdrop" onclick="close_tour()"></div>
+  <div id="tourmodal" class="tourmodal">
+    <iframe id="touriframe" src="/tours/update"></iframe>
+  </div>
+  <script src="/static/scripts/user.js"></script>
 </body>
 </html>

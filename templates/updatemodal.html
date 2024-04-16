@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <title>Tour</title>
+    <link href="/static/styles/style.css" rel="stylesheet" type="text/css" />
+    <link href="/static/styles/tour.css" rel="stylesheet" type="text/css" />
+    <script src="/static/scripts/arctheme.js"></script>
+  </head>
+  <body>
+    <div class="slidescontainer" id="slides">
+      <div class="slide" id="slide1">
+        <img class="mainimg" src="/static/resources/images/tour/mobileoptimized.png">
+        <p>Enjoy this new update! Everything should be much more mobile optimized now.</p>
+      </div>
+    </div>
+    <div class="navbuttons">
+      <button id="prevbutton" onclick="goback()" disabled>Previous</button>
+      <button id="nextbutton" onclick="gonext()" disabled>Next</button>
+      <button id="donebutton" onclick="window.top.close_tour()" class="inactive">Done</button>
+      <button id="skipbutton" onclick="window.top.close_tour()">Skip</button>
+    </div>
+    <script src="/static/scripts/user.js"></script>
+  </body>
+</html>
