@@ -9,14 +9,14 @@ function close_tour() {
   document.getElementById('tourmodal').classList.remove('actived');
 }
 
-var latestversion = 9.1;
+var latestversion = "0.9.1";
 
 var lastversion = get_cookie('version');
 if (!lastversion) {
   document.cookie = "version=0";
   lastversion = 0;
 }
-if (lastversion < latestversion) {
+if (lastversion != latestversion) {
   document.cookie = "version=" + latestversion;
   open_tour();
 }
