@@ -147,5 +147,27 @@
                 "Tuna Salad Sandwich Fresh Fruit Cup"
             ]
         }
+    },
+    "week4": {
+        "days": [
+            "monday",
+            "tuesday"
+        ],
+        "monday": {
+            "date": "04/22/2024",
+            "menu": [
+                "Pasta Alfredo with Broccoli",
+                "1/2 Sunbutter and Jelly Sandwich",
+                "Breaded Chicken Patty on WG Bun"
+            ]
+        },
+        "tuesday": {
+            "date": "04/23/2024",
+            "menu": [
+                "Cheese Quesadilla Pico de Gallo",
+                "Chef Salad w/ WGR Dinner Rolls",
+                "Chicken Corn Dog with Fries"
+            ]
+        }
     }
 }

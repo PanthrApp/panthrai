@@ -94,8 +94,8 @@
     },
     "wednesday": {
       "date": "04/17/2024",
-      "name": "Wednesday",
-      "template": "wednesday"
+      "name": "CAASPP Testing Wednesday",
+      "template": "caasppwednesday"
     },
     "thursday": {
       "date": "04/18/2024",
