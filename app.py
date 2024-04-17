@@ -50,7 +50,7 @@ def index():
   token = request.cookies.get('token')
   if getuseridfromtoken(token) == None:
     response = make_response(render_template("index.html"))
-    response.set_cookie('token', 'adam')
+    # response.set_cookie('token', 'adam')
     return response
   else:
     return redirect('/user')
