@@ -7,15 +7,14 @@ function open_tour() {
 function close_tour() {
   document.getElementById('backdrop').classList.remove('open');
   document.getElementById('tourmodal').classList.remove('actived');
-  document.cookie = "seentour=true; expires=Fri, 31 Dec 9999 23:59:59 GMT";
 }
 
-var latestversion = 1;
+var latestversion = 9.1;
 
 var lastversion = get_cookie('version');
 if (!lastversion) {
-  document.cookie = "version=1";
-  lastversion = 1;
+  document.cookie = "version=0";
+  lastversion = 0;
 }
 if (lastversion < latestversion) {
   document.cookie = "version=" + latestversion;
