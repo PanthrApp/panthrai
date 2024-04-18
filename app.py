@@ -139,7 +139,7 @@ def fetch():
     return jsonify({})
   con.commit()
   threadid = request.form.get("threadid")
-  response = assistants.getmessagesjson(threadid)
+  response = assistants.getmessagesjson(threadid, result[0][2])
   return jsonify(response)
 
 @app.route('/api/renamethread', methods=["POST"])
@@ -156,6 +156,8 @@ def renamethread():
     return "Error"
   if result[0][1] != userid:
     return "Error"
+  print("Thread ID: " + request.form.get("threadid"))
+  print("New Name: " + request.form.get("newname"))
   cur.execute("UPDATE threads SET name=? WHERE id=?", (request.form.get("newname"), request.form.get("threadid")))
   con.commit()
   return "Success"
@@ -185,7 +187,7 @@ def threadredirect():
   con = sqlite3.connect("main.db")
   cur = con.cursor()
   threadid = assistants.createnewthread()
-  cur.execute("INSERT INTO threads VALUES (?, ?, ?, ?)", (threadid, userid, "Chat", datetime.datetime.now()))
+  cur.execute("INSERT INTO threads VALUES (?, ?, ?, ?)", (threadid, userid, "Untitled thread", datetime.datetime.now()))
   con.commit()
   return redirect(f'thread/{threadid}')
 

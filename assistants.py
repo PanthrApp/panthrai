@@ -38,9 +38,9 @@ def createnewthread():
   threadid = thread.id
   return threadid
 
-def getmessagesjson(threadid):
+def getmessagesjson(threadid, threadname):
   messages = client.beta.threads.messages.list(thread_id=threadid)
-  finaljson = {}
+  finaljson = {"name": threadname}
   templist = []
   for message in messages.data:
     templist.append({"role": message.role, "content": message.content[0].text.value, "time": message.created_at, "id": message.id})

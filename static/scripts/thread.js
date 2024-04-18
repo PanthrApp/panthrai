@@ -106,6 +106,8 @@ function loadmessages() {
   http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
   http.onreadystatechange = function() {
       if(http.readyState == 4 && http.status == 200) {
+        var threadname = JSON.parse(http.responseText)['name'];
+        document.getElementById('threadname').value = threadname;
         var messages = JSON.parse(http.responseText)['messages'];
         for (var i = 0; i < messages.length; i++) {
           if (messages[i].role == "assistant") {
@@ -132,5 +134,17 @@ function loadmessages() {
         window.scrollTo(0, document.body.scrollHeight);
       }
   }
+  http.send(params);
+}
+
+function renamethread() {
+  var http = new XMLHttpRequest();
+  var url = '/api/renamethread';
+  if (document.getElementById('threadname').value.length == 0) {
+    document.getElementById('threadname').value = "Untitled thread";
+  }
+  var params = `threadid=${window.location.pathname.split('/')[2]}&newname=${document.getElementById('threadname').value}&authorization=${get_cookie('token')}`;
+  http.open('POST', url, true);
+  http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
   http.send(params);
 }

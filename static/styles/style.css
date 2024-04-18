@@ -214,3 +214,16 @@ a:hover, a:active { color:var(--link-accent); text-decoration: underline;}
   opacity: 1;
   pointer-events: auto;
 }
+
+input {
+  color: var(--navbar-text-color);
+  background-color: var(--navbar-accent);
+  border: solid 1px #ffffff;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+input::placeholder {
+  color: var(--navbar-link-accent);
+  opacity: 1;
+}
