@@ -152,7 +152,10 @@
     "week4": {
         "days": [
             "monday",
-            "tuesday"
+            "tuesday",
+            "wednesday",
+            "thursday",
+            "friday"
         ],
         "monday": {
             "date": "04/22/2024",
@@ -168,6 +171,33 @@
                 "Cheese Quesadilla Pico de Gallo",
                 "Chef Salad w/ WGR Dinner Rolls",
                 "Chicken Corn Dog with Fries"
+            ]
+        },
+        "wednesday": {
+            "date": "04/24/2024",
+            "menu": [
+                "Beef Hotdog Baked French Fries",
+                "Creamy Mac & Cheese Dinner Roll",
+                "Beef Burger Baked French Fies",
+                "100% Beef Cheeseburger Baked French Fies"
+            ]
+        },
+        "thursday": {
+            "date": "04/25/2024",
+            "menu": [
+                "Spaghetti and Meatballs with Side of Broccoli",
+                "Crispy Chicken Wrap",
+                "Bosco Cheese Sticks Marinara Sauce Cup"
+            ]
+        },
+        "friday": {
+            "date": "04/26/2024",
+            "menu": [
+                "Big Daddy Pizza",
+                "Cheese Pizza",
+                "Pepperoni Pizza",
+                "Hawaiian Pizza",
+                "Tuna Salad Sandwich Fresh Fruit Cup"
             ]
         }
     }
