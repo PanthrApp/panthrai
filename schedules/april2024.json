@@ -107,5 +107,39 @@
       "name": "Friday",
       "template": "friday"
     }
+  },
+  "week4": {
+    "days": [
+      "monday",
+      "tuesday",
+      "wednesday",
+      "thursday",
+      "friday"
+    ],
+    "monday": {
+      "date": "04/22/2024",
+      "name": "Monday",
+      "template": "monday"
+    },
+    "tuesday": {
+      "date": "04/23/2024",
+      "name": "Tuesday",
+      "template": "tuesday"
+    },
+    "wednesday": {
+      "date": "04/24/2024",
+      "name": "Wednesday",
+      "template": "wednesday"
+    },
+    "thursday": {
+      "date": "04/25/2024",
+      "name": "Thursday",
+      "template": "thursday"
+    },
+    "friday": {
+      "date": "04/26/2024",
+      "name": "Friday",
+      "template": "friday"
+    }
   }
 }
