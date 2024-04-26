@@ -4,7 +4,7 @@ function open_tour() {
   document.getElementById('tourmodal').classList.add('actived');
 }
 
-var latestversion = "0.9.2";
+var latestversion = "0.9.3";
 
 function close_tour() {
   document.cookie = "version=" + latestversion;

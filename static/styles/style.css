@@ -227,3 +227,11 @@ input::placeholder {
   color: var(--navbar-link-accent);
   opacity: 1;
 }
+
+h1 {
+  word-wrap: break-word;
+}
+
+li {
+  word-wrap: break-word;
+}

@@ -9,6 +9,7 @@ import sqlite3
 import base64
 import base58check
 from config import g_client_id, g_client_secret
+import random
 
 app = Flask(__name__)
 app.secret_key = os.urandom(12)
@@ -336,8 +337,56 @@ def user():
   for thread in result:
     newdatetime = datetime.datetime.strptime(thread[3], "%Y-%m-%d %H:%M:%S.%f")
     newdatetime = newdatetime.strftime("%m/%d/%Y %I:%M %p")
-    threads += "<li><b><a href='/thread/" + thread[0] + "'>" + thread[2] + "</a></b> Last modified: " + newdatetime + "</li>"
-  return render_template("user.html", content=f"<h1>Welcome, {name}!</h1><p>Click the button above to start chatting. Your chats will be saved below.</p>" + "<h2>Your Threads:</h2><ul>" + threads + "</ul>")
+    threads += "<li><b><a href='/thread/" + thread[0] + "'>" + thread[2] + "</a></b> Last message: " + newdatetime + "</li>"
+  if threads == "":
+    threads = "<li>Looks like you don't have any threads yet. <a href='/thread'>Create</a> your first one now!</li>"
+  return render_template("user.html", content=threads, name=name, picture=userinfo[4])
+
+@app.route('/settings')
+def settings():
+  token = request.cookies.get('token')
+  userid = getuseridfromtoken(token)
+  if userid == None:
+    return redirect('/google')
+  userinfo = getuserinfofromid(userid)
+  name = userinfo[3]
+  email = userinfo[2]
+  return render_template("settings.html", name=name, email=email, picture=userinfo[4])
+
+@app.route('/settings/update', methods=["POST"])
+def updatesettings():
+  token = request.cookies.get('token')
+  userid = getuseridfromtoken(token)
+  if userid == None:
+    return redirect('/google')
+  userinfo = getuserinfofromid(userid)
+  name = request.form.get("name")
+  email = request.form.get("email")
+  con = sqlite3.connect("main.db")
+  cur = con.cursor()
+  cur.execute("UPDATE users SET name=?, email=? WHERE id=?", (name, email, userid))
+  con.commit()
+  return redirect('/user')
+
+@app.route('/accountdeletion', methods=["GET", "POST"])
+def accountdeletion():
+  if request.method == "GET":
+    return render_template("page.html", content="<h1>Delete your account</h1><p>We're sad to see you go. To delete your account, just check the box and hit the delete button.</p><form method='post'><input type='checkbox' name='confirm' value='yes' required><label for='confirm'>I understand that by deleting my account, all of my data will be immediately wiped from PantherAI's servers. There is no reversal as the deletion occurs immediately.</label><br><input type='submit' value='Delete'></form>")
+  else:
+    token = request.cookies.get('token')
+    userid = getuseridfromtoken(token)
+    if userid == None:
+      return redirect('/google')
+    con = sqlite3.connect("main.db")
+    cur = con.cursor()
+    cur.execute("DELETE FROM users WHERE id=?", (userid,))
+    con.commit()
+    # delete all threads
+    cur.execute("DELETE FROM threads WHERE userid=?", (userid,))
+    con.commit()
+    response = make_response(render_template("page.html", content="<h1>Account Deleted</h1><p>Your account has been successfully deleted along with all of your threads and chat history.</p><a href='/'><button>Return to Home</button></a><a href='/user'><button>Get Started</button></a>"))
+    response.set_cookie('token', '', expires=0)
+    return response
 
 @app.route('/super-secret/starfield/pirated-from-replit/inspect')
 def inspect():

@@ -33,7 +33,13 @@
     </a>
   </div>
   <div class="content">
-    {{ content|safe }}
+    <h1>Hello, {{name}}!</h1>
+    <div class="threadlist">
+      {{ content|safe }}
+    </div>
+    <!-- <h3>Customize your experience!</h3> -->
+    <br><br>
+    <a href="/settings"><button>Settings</button></a>
   </div>
   <div id="backdrop" class="backdrop" onclick="close_tour()"></div>
   <div id="tourmodal" class="tourmodal">

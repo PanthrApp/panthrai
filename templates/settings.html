@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <link rel="apple-touch-icon" sizes="180x180" href="/static/resources/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/static/resources/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/static/resources/favicons/favicon-16x16.png">
+  <link rel="manifest" href="/static/resources/favicons/site.webmanifest">
+  <link rel="mask-icon" href="/static/resources/favicons/safari-pinned-tab.svg" color="#08006e">
+  <link rel="shortcut icon" href="/static/resources/favicons/favicon.ico">
+  <meta name="apple-mobile-web-app-title" content="PanthrApp">
+  <meta name="application-name" content="PanthrApp">
+  <meta name="msapplication-TileColor" content="#2b5797">
+  <meta name="msapplication-config" content="/static/resources/favicons/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+  <link href="/static/styles/style.css" rel="stylesheet" type="text/css" />
+  <link href="https://fonts.googleapis.com/css?family=Inter" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <title>PantherAI</title>
+  <script src="/static/scripts/arctheme.js"></script>
+</head>
+<body>
+  <div class="navbar">
+    <a href="/">
+      <span class="navbartitle">PantherAI</span><span class="navbartitlenote">Beta</span>
+    </a>
+    <span class="space"></span>
+    <a href="/user">
+      <span class="navbaritem" id="dashboard">Dashboard</span>
+      <span class="navbaritem" id="dashicon"><img src="/static/resources/images/dashboard.png"></span>
+    </a>
+  </div>
+  <div class="content">
+    <h1>Settings</h1>
+    <form action="/settings/update" method="post">
+      <h2>Update your profile!</h2>
+      <label for="username">Name:</label><br>
+      <input type="text" id="name" name="name" placeholder="{{ name }}" value="{{ name }}"><br>
+      <label for="email">Email:</label><br>
+      <input type="text" id="email" name="email" placeholder="{{ email }}" value="{{ email }}"><br>
+      <input type="submit" value="Update">
+      <h2>Change your theme!</h2>
+      <div id="themeeditor">
+        Loading...
+      </div>
+      <script>
+        function theme() {
+          if (document.getElementById('themeeditor').innerHTML == 'Loading...') {
+            return;
+          }
+          var hex = getComputedStyle(document.body).getPropertyValue('--text-color').slice(0, 7);
+          if (hex.charAt(0) == '#') {
+            document.getElementById('themeeditor').innerHTML = '<p>It seems you are using Arc Browser! That means that PantherAI syncs to your browser theme. To edit your theme, right click your sidebar and click Theme...</p>';
+          } else {
+            document.getElementById('themeeditor').innerHTML = '<p>To change your theme, you need Arc Browser. <a href="https://arc.net/gift/a06241b3">Download from here.</a></p>';
+          }
+        }
+        theme();
+      </script>
+    </form>
+    <h2>Account Settings</h2>
+    <a href="/logout"><button>Logout</button></a>
+    <a href="/accountdeletion"><button>Delete Account</button></a>
+  </div>
+</body>
+</html>
